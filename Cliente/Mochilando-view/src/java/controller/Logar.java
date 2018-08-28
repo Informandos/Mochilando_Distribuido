@@ -2,27 +2,15 @@ package controller;
 
 
 import model.domain.Usuario;
-import model.service.implementacao.ManterUsuario;
 import model.service.interfaces.InterfaceManterUsuario;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.domain.Diario;
-import model.domain.TagDiario;
-import model.domain.UsuarioTag;
-import model.service.implementacao.ManterDiario;
-import model.service.implementacao.ManterTagDiario;
-import model.service.implementacao.ManterUsuarioTag;
-import model.service.interfaces.InterfaceManterDiario;
-import model.service.interfaces.InterfaceManterTagDiario;
-import model.service.interfaces.InterfaceManterUsuarioTag;
+import proxy.ProxyManterUsuario;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
-import util.pesquisas.AtualizacaoDiarios;
 
 public class Logar {
 
@@ -35,7 +23,7 @@ public class Logar {
             String email = request.getParameter("email");
             String senha = request.getParameter("senha");
 
-            InterfaceManterUsuario manterUsuario = new ManterUsuario();
+            InterfaceManterUsuario manterUsuario = new ProxyManterUsuario();
             Usuario usr = manterUsuario.getUserLogin(email, senha);
 
             if (usr == null) {

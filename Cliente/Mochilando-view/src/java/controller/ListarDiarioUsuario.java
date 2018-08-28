@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import model.domain.Diario;
-import model.service.implementacao.ManterDiario;
 import model.service.interfaces.InterfaceManterDiario;
 
 /**
@@ -25,7 +24,7 @@ public class ListarDiarioUsuario implements Logica {
         String stringCodUsuario = request.getSession().getAttribute("codUsuario").toString();
         Long codUsuario = Long.parseLong(stringCodUsuario);
 
-        InterfaceManterDiario manterDiario = new ManterDiario();
+        InterfaceManterDiario manterDiario = new ProxyManterDiario();
         List<Diario> listaDiario = manterDiario.pesquisarPorCodUsuario(codUsuario);
 
         if (listaDiario != null) {

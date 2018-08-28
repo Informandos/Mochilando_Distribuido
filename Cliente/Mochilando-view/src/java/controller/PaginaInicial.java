@@ -20,7 +20,7 @@ public class PaginaInicial implements Logica {
 
         //Obtem dados do usuario para exibir seus diarios no jsp a ser enviado (pagina inicial)
         //Busca por todos os diarios que tem alguma tag nesse conjunto de tags do usuario
-        /*List<Diario> listaDiario = null;
+        List<Diario> listaDiario = null;
                 
                 AtualizacaoDiarios atualizacao = new AtualizacaoDiarios();
                 //listaDiario = atualizacao.atualizar(usr.getCodUsuario());*/

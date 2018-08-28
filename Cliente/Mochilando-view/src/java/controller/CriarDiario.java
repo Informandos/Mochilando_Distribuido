@@ -12,14 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import model.domain.Estado;
 import model.domain.Tag;
 import model.domain.Usuario;
-import model.service.implementacao.ManterEstado;
-import model.service.implementacao.ManterTag;
-import model.service.implementacao.ManterTipoAtracao;
-import model.service.implementacao.ManterUsuario;
 import model.service.interfaces.InterfaceManterEstado;
 import model.service.interfaces.InterfaceManterTag;
 import model.service.interfaces.InterfaceManterTipoAtracao;
 import model.service.interfaces.InterfaceManterUsuario;
+import proxy.ProxyManterTag;
 
 /**
  *
@@ -30,7 +27,7 @@ public class CriarDiario implements Logica {
     @Override
     public String execute(HttpServletRequest request) throws Exception {
 
-        InterfaceManterTag manterTag = new ManterTag();
+        InterfaceManterTag manterTag =  new ProxyManterTag();
         List<Tag> listaTag = manterTag.pesquisarTodos();
         request.setAttribute("listaTag", listaTag);
         //Pegando todos os estados

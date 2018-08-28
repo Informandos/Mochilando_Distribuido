@@ -6,8 +6,8 @@
 package proxy;
 
 import java.util.List;
-import model.domain.Usuario;
-import model.service.interfaces.InterfaceManterUsuario;
+import model.domain.Tag;
+import model.service.interfaces.InterfaceManterTag;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
@@ -15,40 +15,35 @@ import util.db.exception.ExcecaoPersistencia;
  *
  * @author Aluno
  */
-public class ProxyManterUsuario implements InterfaceManterUsuario {
+public class ProxyManterTag implements InterfaceManterTag {
 
     @Override
-    public Long cadastrar(Usuario usuario) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public Long cadastrar(Tag tag) throws ExcecaoPersistencia, ExcecaoNegocio {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean alterar(Usuario usuario) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean alterar(Tag tag) throws ExcecaoPersistencia, ExcecaoNegocio {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean excluir(Usuario usuario) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean excluir(Tag tag) throws ExcecaoPersistencia, ExcecaoNegocio {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Usuario> pesquisarTodos() throws ExcecaoPersistencia {
+    public Tag pesquisarPorId(Long codTag) throws ExcecaoPersistencia {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Usuario pesquisarPorId(Long id) throws ExcecaoPersistencia {
+    public Tag pesquisarPorNome(String descTag) throws ExcecaoPersistencia {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Usuario getUserLogin(String email, String senha) throws ExcecaoPersistencia, ExcecaoNegocio {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Usuario getUserEmail(String email) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public List<Tag> pesquisarTodos() throws ExcecaoPersistencia {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

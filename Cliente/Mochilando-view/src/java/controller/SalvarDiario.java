@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import model.domain.Dia;
 import model.domain.Diario;
 import model.domain.Usuario;
-import model.service.implementacao.ManterDiario;
 import model.service.interfaces.InterfaceManterDiario;
 import java.time.*;
 import java.time.temporal.ChronoUnit;
@@ -25,7 +24,6 @@ import model.domain.Atracao;
 import model.domain.Comentario;
 import model.domain.DiaAtracao;
 import model.domain.Foto;
-import model.service.implementacao.ManterDiaAtracao;
 import model.service.interfaces.InterfaceManterDiaAtracao;
 
 /**

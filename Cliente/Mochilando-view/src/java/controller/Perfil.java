@@ -10,10 +10,9 @@ import controller.interfacelogica.Logica;
 import javax.servlet.http.HttpServletRequest;
 import model.domain.Cidade;
 import model.domain.Usuario;
-import model.service.implementacao.ManterCidade;
-import model.service.implementacao.ManterUsuario;
 import model.service.interfaces.InterfaceManterCidade;
 import model.service.interfaces.InterfaceManterUsuario;
+import proxy.ProxyManterCidade;
 
 /**
  *
@@ -41,9 +40,9 @@ public class Perfil implements Logica {
             request.setAttribute("nome", usuario.getNomUsuario()+" "+usuario.getSobrenomeUsuario());
             request.setAttribute("email", usuario.getTxtEmail());
             request.setAttribute("sexo", usuario.getSexo());
-            request.setAttribute("cidade", "Igarape");
+            request.setAttribute("cidade", usuario.getCidade());
             
-            InterfaceManterCidade manterCidade = new ManterCidade();
+            
             
             paginaJsp = "/Perfil.jsp";
         }

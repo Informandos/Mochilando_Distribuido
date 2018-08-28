@@ -29,7 +29,8 @@ public class AtualizacaoDiarios {
             String sql = "SELECT A.cod_diario FROM"
                     + " diario A JOIN tag_diario B ON A.cod_diario = B.cod_diario "
                     + "JOIN usuario_tag C ON B.cod_tag = C.cod_tag "
-                    + "WHERE C.cod_usuario = ? GROUP BY 1";
+                    + "WHERE C.cod_usuario = ? "
+                    + "GROUP BY 1, A.dat_publicacao ORDER BY A.dat_publicacao";
             
             PreparedStatement pstmt = connection.prepareStatement(sql);
             
