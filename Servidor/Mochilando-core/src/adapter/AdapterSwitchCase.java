@@ -11,9 +11,9 @@ import java.net.Socket;
  *
  * @author Aluno
  */
-public class ManterUsuarioAdapter implements Runnable {
+public class AdapterSwitchCase implements Runnable {
 
-    public ManterUsuarioAdapter(Socket socket) {
+    public AdapterSwitchCase(Socket socket) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

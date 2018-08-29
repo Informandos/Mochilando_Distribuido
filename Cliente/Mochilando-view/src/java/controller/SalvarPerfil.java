@@ -56,8 +56,9 @@ public class SalvarPerfil implements Logica {
             usuario.setCidade(null);
             usuario.setImgPerfil(null);
             usuario.setCodUsuario(null);
-            InterfaceManterUsuario usu = new ProxyManterUsuario();
-            Long cadastrar = usu.cadastrar(usuario);
+            InterfaceManterUsuario manterUsuario = new ProxyManterUsuario();
+            Long cadastrar = manterUsuario.cadastrar(usuario);
+            
         } catch (ExcecaoPersistencia | ExcecaoNegocio ex) {
             Logger.getLogger(CadastrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }

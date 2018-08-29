@@ -5,7 +5,7 @@
  */
 package servidor;
 
-import adapter.ManterUsuarioAdapter;
+import adapter.AdapterSwitchCase;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -24,7 +24,7 @@ public class Servidor {
 
             while(true) {
                 Socket socket = server.accept();
-                ManterUsuarioAdapter manterUsuarioAdapter = new ManterUsuarioAdapter(socket);
+                AdapterSwitchCase manterUsuarioAdapter = new AdapterSwitchCase(socket);
                 Thread t = new Thread(manterUsuarioAdapter);
                 t.start();
             }
