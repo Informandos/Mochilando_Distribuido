@@ -28,7 +28,7 @@ public class Servidor {
     private static final int PORTASERVIDOR = 2223;
     private static final int TAMANHO_MAXIMO_DATAGRAMA_UDP = 65507;
 
-    public static void main(String args[]) throws IOException, ClassNotFoundException, ExcecaoPersistencia, ExcecaoNegocio {
+    public static synchronized void main(String args[]) throws IOException, ClassNotFoundException, ExcecaoPersistencia, ExcecaoNegocio {
 
         servidorDatagramaSocket = new DatagramSocket(PORTASERVIDOR);
         //Servidor eternamente ligado (enquanto a main estiver rodando)
