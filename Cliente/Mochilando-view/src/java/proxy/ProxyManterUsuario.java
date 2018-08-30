@@ -20,7 +20,7 @@ import util.db.exception.ExcecaoPersistencia;
 
 /**
  *
- * @author Aluno
+ * @author Juliana, Carlos
  */
 public class ProxyManterUsuario implements InterfaceManterUsuario {
     
@@ -40,47 +40,121 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
     public Long cadastrar(Usuario usuario) throws ExcecaoPersistencia, ExcecaoNegocio {
         manterUsuario = new ArrayList();
         manterUsuario.add("Usuario");
-        manterUsuario.add("Cadastrar");
+        manterUsuario.add("cadastrar");
         manterUsuario.add(usuario);
         
         //Indice de onde vai estar o long
-        Long codUsuario = 0L;
+        Long result = 0L;
         try {
-            codUsuario = (Long) cliente.requisicao(manterUsuario).get(0);
+            result = (Long) cliente.requisicao(manterUsuario).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return codUsuario;
+        return result;
     }
 
     @Override
     public boolean alterar(Usuario usuario) throws ExcecaoPersistencia, ExcecaoNegocio {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manterUsuario = new ArrayList();
+        manterUsuario.add("Usuario");
+        manterUsuario.add("alterar");
+        manterUsuario.add(usuario);
+        
+        //Indice de onde vai estar o long
+        boolean result = false;
+        try {
+            result = (boolean) cliente.requisicao(manterUsuario).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
     public boolean excluir(Usuario usuario) throws ExcecaoPersistencia, ExcecaoNegocio {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manterUsuario = new ArrayList();
+        manterUsuario.add("Usuario");
+        manterUsuario.add("excluir");
+        manterUsuario.add(usuario);
+        
+        //Indice de onde vai estar o long
+        boolean result = false;
+        try {
+            result = (boolean) cliente.requisicao(manterUsuario).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
     public List<Usuario> pesquisarTodos() throws ExcecaoPersistencia {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manterUsuario = new ArrayList();
+        manterUsuario.add("Usuario");
+        manterUsuario.add("pesquisarTodos");
+        
+        //Indice de onde vai estar o long
+        
+        List<Usuario> result = null;
+        try {
+            result = (List<Usuario>) cliente.requisicao(manterUsuario).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
     public Usuario pesquisarPorId(Long id) throws ExcecaoPersistencia {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manterUsuario = new ArrayList();
+        manterUsuario.add("Usuario");
+        manterUsuario.add("pesquisarPorId");
+        manterUsuario.add(id);
+        
+        //Indice de onde vai estar o long
+        Usuario result = null;
+        try {
+            result = (Usuario) cliente.requisicao(manterUsuario).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
     public Usuario getUserLogin(String email, String senha) throws ExcecaoPersistencia, ExcecaoNegocio {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manterUsuario = new ArrayList();
+        manterUsuario.add("Usuario");
+        manterUsuario.add("getUserLogin");
+        manterUsuario.add(email);
+        manterUsuario.add(senha);
+
+        //Indice de onde vai estar o long
+        Usuario result = null;
+        try {
+            result = (Usuario) cliente.requisicao(manterUsuario).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
     public Usuario getUserEmail(String email) throws ExcecaoPersistencia, ExcecaoNegocio {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manterUsuario = new ArrayList();
+        manterUsuario.add("Usuario");
+        manterUsuario.add("getUserEmail");
+        manterUsuario.add(email);
+
+        //Indice de onde vai estar o long
+        Usuario result = null;
+        try {
+            result = (Usuario) cliente.requisicao(manterUsuario).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
 }
+
