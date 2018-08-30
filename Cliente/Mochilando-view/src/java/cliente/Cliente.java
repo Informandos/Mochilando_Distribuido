@@ -5,24 +5,19 @@
  */
 package cliente;
 
-import com.sun.mail.iap.ByteArray;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.lang.reflect.Array;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.domain.Usuario;
 
 /**
  *
@@ -32,10 +27,10 @@ public class Cliente {
 
     public static Cliente cliente;
 
-    private DatagramSocket clienteDatagramaSocket;
+    private final DatagramSocket clienteDatagramaSocket;
     private final String nomServidorStr = "localhost";
     private final int PORTA = 2233;
-    private InetAddress EnderecoIP;
+    private final InetAddress enderecoIP;
     private final int TAMANHO_MAXIMO_DATAGRAMA_UDP = 65507;
 
     //ArrayList a ser recebida do proxy
@@ -45,7 +40,7 @@ public class Cliente {
 
     private Cliente() throws SocketException, UnknownHostException {
         clienteDatagramaSocket = new DatagramSocket();
-        EnderecoIP = InetAddress.getByName(nomServidorStr);
+        enderecoIP = InetAddress.getByName(nomServidorStr);
     }
 
     public static Cliente getInstance() throws SocketException, UnknownHostException {
@@ -92,7 +87,7 @@ public class Cliente {
         //Finalmente envia para o servidor
  
         DatagramPacket datagramaEnviar;
-        datagramaEnviar = new DatagramPacket(vetorBytesSaida, vetorBytesSaida.length, EnderecoIP, PORTA);
+        datagramaEnviar = new DatagramPacket(vetorBytesSaida, vetorBytesSaida.length, enderecoIP, PORTA);
         clienteDatagramaSocket.send(datagramaEnviar);
         
         //Recebendo byte[] do servidor e transformando para object(ArrayList)
@@ -105,6 +100,9 @@ public class Cliente {
             ByteArrayInputStream bais= new ByteArrayInputStream(vetorBytesEntrada);
             ObjectInputStream ois = new ObjectInputStream(bais);
             arrayListDestinadoProxy = (ArrayList) ois.readObject();
+            
+            bais.close();
+            ois.close();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Erro de IO ou ClassNotFoundException ");
         }
