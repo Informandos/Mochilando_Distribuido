@@ -74,6 +74,7 @@ public class ProxyManterEstado implements InterfaceManterEstado{
         manterEstado = new ArrayList();
         manterEstado.add("Estado");
         manterEstado.add("pesquisarPorId");
+        manterEstado.add(codEstado);
         
         Estado result = null;
         try {
