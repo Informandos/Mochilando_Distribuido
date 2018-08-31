@@ -60,9 +60,9 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
         manterAvaliacaoComentario.add(avaliacaoComentario);
         
         //Indice de onde vai estar o long
-        Long result = 0L;
+        boolean result = false;
         try {
-            result = (Long) cliente.requisicao(manterAvaliacaoComentario).get(0);
+            result = (Boolean) cliente.requisicao(manterAvaliacaoComentario).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
