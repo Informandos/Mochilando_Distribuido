@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import model.dao.implementacao.CidadeDAO;
 import model.dao.interfaces.InterfaceCidadeDAO;
-import model.domain.Cidade;
 import model.domain.Usuario;
+
 import util.db.ConnectionManager;
 import util.db.exception.ExcecaoPersistencia;
 

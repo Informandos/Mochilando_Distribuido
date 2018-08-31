@@ -5,10 +5,98 @@
  */
 package proxy;
 
+import cliente.Cliente;
+import java.io.IOException;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.domain.AvaliacaoComentario;
+import model.service.interfaces.InterfaceManterAvaliacaoComentario;
+import util.db.exception.ExcecaoNegocio;
+import util.db.exception.ExcecaoPersistencia;
+
 /**
  *
  * @author Aluno
  */
-public class ProxyManterAvaliacaoComentario {
+public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoComentario {
+    private ArrayList manterAvaliacaoComentario = null;
+    private Cliente cliente = null;
+    /*
+            ArrayList armazena:
+            1) Tipo do Objeto (String)
+            2) Operacao (cadastrar, alterar, excluir, pesquisar, etc)
+            3) Parametro(s) da operacao (Objeto, String ou Long)
+     */
+    public ProxyManterAvaliacaoComentario() throws SocketException, UnknownHostException{
+         cliente = Cliente.getInstance();
+    }
+    
+    @Override
+    public Long cadastrar(AvaliacaoComentario avaliacaoComentario) throws ExcecaoPersistencia, ExcecaoNegocio {
+        manterAvaliacaoComentario = new ArrayList();
+        manterAvaliacaoComentario.add("AvaliacaoComentario");
+        manterAvaliacaoComentario.add("cadastrar");
+        manterAvaliacaoComentario.add(avaliacaoComentario);
+        
+        //Indice de onde vai estar o long
+        Long result = 0L;
+        try {
+            result = (Long) cliente.requisicao(manterAvaliacaoComentario).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
+    }
+
+    @Override
+    public boolean alterar(AvaliacaoComentario avaliacaoComentario) throws ExcecaoPersistencia, ExcecaoNegocio {
+        manterAvaliacaoComentario = new ArrayList();
+        manterAvaliacaoComentario.add("AvaliacaoComentario");
+        manterAvaliacaoComentario.add("cadastrar");
+        manterAvaliacaoComentario.add(avaliacaoComentario);
+        
+        //Indice de onde vai estar o long
+        Long result = 0L;
+        try {
+            result = (Long) cliente.requisicao(manterAvaliacaoComentario).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
+    }
+
+    @Override
+    public boolean excluir(AvaliacaoComentario avaliacaoComentario) throws ExcecaoPersistencia, ExcecaoNegocio {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public AvaliacaoComentario pesquisarPorId(Long seqAvaliacao) throws ExcecaoPersistencia {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int pesquisarNumAvPositivas(Long seqComentario) throws ExcecaoPersistencia {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int pesquisarNumAvNegativas(Long seqComentario) throws ExcecaoPersistencia {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<AvaliacaoComentario> pesquisarPorDiario(Long codDiario) throws ExcecaoPersistencia {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<AvaliacaoComentario> pesquisarTodos(Long seqAvaliacao) throws ExcecaoPersistencia {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
