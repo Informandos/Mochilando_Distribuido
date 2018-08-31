@@ -60,7 +60,6 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
         manterUsuario.add("alterar");
         manterUsuario.add(usuario);
         
-        //Indice de onde vai estar o long
         boolean result = false;
         try {
             result = (boolean) cliente.requisicao(manterUsuario).get(0);
@@ -77,7 +76,6 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
         manterUsuario.add("excluir");
         manterUsuario.add(usuario);
         
-        //Indice de onde vai estar o long
         boolean result = false;
         try {
             result = (boolean) cliente.requisicao(manterUsuario).get(0);
@@ -93,7 +91,6 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
         manterUsuario.add("Usuario");
         manterUsuario.add("pesquisarTodos");
         
-        //Indice de onde vai estar o long
         
         List<Usuario> result = null;
         try {
@@ -111,7 +108,6 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
         manterUsuario.add("pesquisarPorId");
         manterUsuario.add(id);
         
-        //Indice de onde vai estar o long
         Usuario result = null;
         try {
             result = (Usuario) cliente.requisicao(manterUsuario).get(0);
@@ -129,7 +125,6 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
         manterUsuario.add(email);
         manterUsuario.add(senha);
 
-        //Indice de onde vai estar o long
         Usuario result = null;
         try {
             result = (Usuario) cliente.requisicao(manterUsuario).get(0);
@@ -146,7 +141,6 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
         manterUsuario.add("getUserEmail");
         manterUsuario.add(email);
 
-        //Indice de onde vai estar o long
         Usuario result = null;
         try {
             result = (Usuario) cliente.requisicao(manterUsuario).get(0);
