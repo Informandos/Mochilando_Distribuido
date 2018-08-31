@@ -57,7 +57,7 @@ public class ProxyManterDia implements InterfaceManterDia{
     @Override
     public boolean excluir(Dia dia) throws ExcecaoPersistencia, ExcecaoNegocio {
         manterDia = new ArrayList();
-        manterDia.add("Usuario");
+        manterDia.add("Dia");
         manterDia.add("excluir");
         manterDia.add(dia);
         
@@ -73,7 +73,7 @@ public class ProxyManterDia implements InterfaceManterDia{
     @Override
     public Dia pesquisarPorId(Long seqDia) throws ExcecaoPersistencia {
         manterDia = new ArrayList();
-        manterDia.add("Usuario");
+        manterDia.add("Dia");
         manterDia.add("pesquisarPorId");
         
         Dia result = null;
@@ -88,7 +88,7 @@ public class ProxyManterDia implements InterfaceManterDia{
     @Override
     public List<Dia> pesquisarPorCodDiario(Long codDiario) throws ExcecaoPersistencia {
         manterDia = new ArrayList();
-        manterDia.add("Usuario");
+        manterDia.add("Dia");
         manterDia.add("pesquisarCodDiario");
         manterDia.add(codDiario);
         
@@ -96,7 +96,7 @@ public class ProxyManterDia implements InterfaceManterDia{
         try {
             result = (List<Dia>) cliente.requisicao(manterDia).get(0);
         } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProxyManterDia.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
     }
@@ -104,7 +104,7 @@ public class ProxyManterDia implements InterfaceManterDia{
     @Override
     public List<Dia> pesquisarTodos() throws ExcecaoPersistencia {
         manterDia = new ArrayList();
-        manterDia.add("Usuario");
+        manterDia.add("Dia");
         manterDia.add("pesquisarTodos");
         
         List<Dia> result = null;
