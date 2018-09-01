@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.domain.AvaliacaoComentario;
+import model.domain.AvaliacaoDiario;
 import model.service.interfaces.InterfaceManterAvaliacaoComentario;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
@@ -161,6 +162,11 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result; 
+    }
+
+    @Override
+    public boolean alterar(AvaliacaoDiario atr) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

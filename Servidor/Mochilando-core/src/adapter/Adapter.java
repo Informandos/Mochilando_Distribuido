@@ -31,11 +31,13 @@ import model.service.implementacao.ManterAtracao;
 import model.service.implementacao.ManterAvaliacaoComentario;
 import model.service.implementacao.ManterAvaliacaoDiario;
 import model.service.implementacao.ManterCidade;
+import model.service.implementacao.ManterComentario;
 import model.service.implementacao.ManterUsuario;
 import model.service.interfaces.InterfaceManterAtracao;
 import model.service.interfaces.InterfaceManterAvaliacaoComentario;
 import model.service.interfaces.InterfaceManterAvaliacaoDiario;
 import model.service.interfaces.InterfaceManterCidade;
+import model.service.interfaces.InterfaceManterComentario;
 import model.service.interfaces.InterfaceManterUsuario;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
@@ -367,8 +369,50 @@ public class Adapter implements Runnable {
                         resposta.add(sucesso);
                     } 
                 }
-                  break;
-                 case "Cidade": 
+            break;
+            case "Comentario": 
+                InterfaceManterComentario manterComentario = new ManterComentario();
+                operacao = (String) requisicao.get(1);
+                 if (operacao.equals("cadastrar")) {
+                    Comentario atr = (Comentario) requisicao.get(2);
+                    Long codAtr = manterComentario.cadastrar(atr);
+                    if (resposta == null) {
+                        resposta.add(codAtr);
+                    }
+
+                } else if (operacao.equals("alterar")) {
+                    Comentario atr = (Comentario) requisicao.get(2);
+                   boolean sucesso = manterComentario.alterar(atr);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                } else if (operacao.equals("excluir")) {
+                    Comentario atr = (Comentario) requisicao.get(2);
+                   boolean sucesso = manterComentario.excluir(atr);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                }else if (operacao.equals("pesquisarPorId")) {
+                    Comentario atr = (Comentario) requisicao.get(2);
+                   Long id = atr.getSeqComentario();
+                   Comentario sucesso = manterComentario.pesquisarPorId(id);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                }else if (operacao.equals("pesquisarPorCodDiario")) {
+                    Comentario atr = (Comentario) requisicao.get(2);
+                    Diario diario = atr.getDiario();
+                   Long id = diario.getCodDiario();
+                   List<Comentario> sucesso = manterComentario.pesquisarPorCodDiario(id);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                }else if (operacao.equals("pesquisarPorCodDiario")) {
+                   List<Comentario> sucesso = manterComentario.pesquisarTodos();
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                }   
             //Outros cases aqui
         }
         //Apos escrever no arrayList, envia a resposta
