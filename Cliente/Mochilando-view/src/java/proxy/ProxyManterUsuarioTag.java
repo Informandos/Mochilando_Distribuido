@@ -6,10 +6,13 @@
 package proxy;
 
 import cliente.Cliente;
+import java.io.IOException;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.domain.UsuarioTag;
 import model.service.interfaces.InterfaceManterUsuarioTag;
 import util.db.exception.ExcecaoNegocio;
@@ -17,7 +20,7 @@ import util.db.exception.ExcecaoPersistencia;
 
 /**
  *
- * @author Aluno
+ * @author Carlos
  */
 public class ProxyManterUsuarioTag implements InterfaceManterUsuarioTag{
     private ArrayList manterUsuarioTag = null;
@@ -34,37 +37,115 @@ public class ProxyManterUsuarioTag implements InterfaceManterUsuarioTag{
 
     @Override
     public Long cadastrar(UsuarioTag usuarioTag) throws ExcecaoPersistencia, ExcecaoNegocio {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manterUsuarioTag = new ArrayList();
+        manterUsuarioTag.add("UsuarioTag");
+        manterUsuarioTag.add("cadastrar");
+        manterUsuarioTag.add(usuarioTag);
+        
+        //Indice de onde vai estar o long
+        Long result = 0L;
+        try {
+            result = (Long) cliente.requisicao(manterUsuarioTag).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
     public boolean alterar(UsuarioTag usuarioTag) throws ExcecaoPersistencia, ExcecaoNegocio {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manterUsuarioTag = new ArrayList();
+        manterUsuarioTag.add("UsuarioTag");
+        manterUsuarioTag.add("alterar");
+        manterUsuarioTag.add(usuarioTag);
+        
+        boolean result = false;
+        try {
+            result = (boolean) cliente.requisicao(manterUsuarioTag).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
     public boolean excluir(UsuarioTag usuarioTag) throws ExcecaoPersistencia, ExcecaoNegocio {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manterUsuarioTag = new ArrayList();
+        manterUsuarioTag.add("UsuarioTag");
+        manterUsuarioTag.add("excluir");
+        manterUsuarioTag.add(usuarioTag);
+        
+        boolean result = false;
+        try {
+            result = (boolean) cliente.requisicao(manterUsuarioTag).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
     public UsuarioTag pesquisarPorId(Long seqUsuarioTag) throws ExcecaoPersistencia {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manterUsuarioTag = new ArrayList();
+        manterUsuarioTag.add("UsuarioTag");
+        manterUsuarioTag.add("pesquisarPorId");
+        manterUsuarioTag.add(seqUsuarioTag);
+        
+        UsuarioTag result = null;
+        try {
+            result = (UsuarioTag) cliente.requisicao(manterUsuarioTag).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
     public List<UsuarioTag> pesquisarTodos() throws ExcecaoPersistencia {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manterUsuarioTag = new ArrayList();
+        manterUsuarioTag.add("UsuarioTag");
+        manterUsuarioTag.add("pesquisarTodos");
+        
+        
+        List<UsuarioTag> result = null;
+        try {
+            result = (List<UsuarioTag>) cliente.requisicao(manterUsuarioTag).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
     public List<UsuarioTag> pesquisarPorCodUsuario(Long codUsuario) throws ExcecaoPersistencia {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manterUsuarioTag = new ArrayList();
+        manterUsuarioTag.add("UsuarioTag");
+        manterUsuarioTag.add("pesquisarPorCodUsuario");
+        manterUsuarioTag.add(codUsuario);
+        
+        List<UsuarioTag> result = null;
+        try {
+            result = (List<UsuarioTag>) cliente.requisicao(manterUsuarioTag).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
     public List<UsuarioTag> pesquisarPorCodTag(Long codTag) throws ExcecaoPersistencia {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manterUsuarioTag = new ArrayList();
+        manterUsuarioTag.add("UsuarioTag");
+        manterUsuarioTag.add("pesquisarPorCodTag");
+        manterUsuarioTag.add(codTag);
+        
+        List<UsuarioTag> result = null;
+        try {
+            result = (List<UsuarioTag>) cliente.requisicao(manterUsuarioTag).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     
