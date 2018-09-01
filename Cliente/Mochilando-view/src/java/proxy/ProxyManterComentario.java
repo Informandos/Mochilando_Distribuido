@@ -37,7 +37,7 @@ public class ProxyManterComentario implements InterfaceManterComentario {
     @Override
     public Long cadastrar(Comentario comentario) throws ExcecaoPersistencia, ExcecaoNegocio {
          manterComentario = new ArrayList();
-         manterComentario.add("Cidade");
+         manterComentario.add("Comentario");
          manterComentario.add("cadastrar");
          manterComentario.add(comentario);
         
@@ -54,7 +54,7 @@ public class ProxyManterComentario implements InterfaceManterComentario {
     @Override
     public boolean alterar(Comentario comentario) throws ExcecaoPersistencia, ExcecaoNegocio {
         manterComentario = new ArrayList();
-         manterComentario.add("Cidade");
+         manterComentario.add("Comentario");
          manterComentario.add("alterar");
          manterComentario.add(comentario);
         
@@ -71,7 +71,7 @@ public class ProxyManterComentario implements InterfaceManterComentario {
     @Override
     public boolean excluir(Comentario comentario) throws ExcecaoPersistencia, ExcecaoNegocio {
         manterComentario = new ArrayList();
-         manterComentario.add("Cidade");
+         manterComentario.add("Comentario");
          manterComentario.add("excluir");
          manterComentario.add(comentario);
         
@@ -88,7 +88,7 @@ public class ProxyManterComentario implements InterfaceManterComentario {
     @Override
     public Comentario pesquisarPorId(Long seqComentario) throws ExcecaoPersistencia {
          manterComentario = new ArrayList();
-         manterComentario.add("Cidade");
+         manterComentario.add("Comentario");
          manterComentario.add("pesquisarPorId");
          manterComentario.add(seqComentario);
         
@@ -105,7 +105,7 @@ public class ProxyManterComentario implements InterfaceManterComentario {
     @Override
     public List<Comentario> pesquisarPorCodDiario(Long codDiario) throws ExcecaoPersistencia {
          manterComentario = new ArrayList();
-         manterComentario.add("Cidade");
+         manterComentario.add("Comentario");
          manterComentario.add("pesquisarPorCodDiario");
          manterComentario.add(codDiario);
         
@@ -122,7 +122,7 @@ public class ProxyManterComentario implements InterfaceManterComentario {
     @Override
     public List<Comentario> pesquisarTodos() throws ExcecaoPersistencia {
          manterComentario = new ArrayList();
-         manterComentario.add("Cidade");
+         manterComentario.add("Comentario");
          manterComentario.add("pesquisarTodos");
          
         

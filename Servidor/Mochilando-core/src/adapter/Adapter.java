@@ -30,10 +30,12 @@ import model.domain.Usuario;
 import model.service.implementacao.ManterAtracao;
 import model.service.implementacao.ManterAvaliacaoComentario;
 import model.service.implementacao.ManterAvaliacaoDiario;
+import model.service.implementacao.ManterCidade;
 import model.service.implementacao.ManterUsuario;
 import model.service.interfaces.InterfaceManterAtracao;
 import model.service.interfaces.InterfaceManterAvaliacaoComentario;
 import model.service.interfaces.InterfaceManterAvaliacaoDiario;
+import model.service.interfaces.InterfaceManterCidade;
 import model.service.interfaces.InterfaceManterUsuario;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
@@ -321,7 +323,52 @@ public class Adapter implements Runnable {
                     if (resposta == null) {
                         resposta.add(sucesso);
                     }
+                } 
+             break;
+                case "Cidade":
+                InterfaceManterCidade manterCidade = new ManterCidade();
+                operacao = (String) requisicao.get(1);    
+                  if (operacao.equals("cadastrar")) {
+                    Cidade atr = (Cidade) requisicao.get(2);
+                    Long codAtr = manterCidade.cadastrar(atr);
+                    if (resposta == null) {
+                        resposta.add(codAtr);
+                    }
+
+                } else if (operacao.equals("alterar")) {
+                    Cidade atr = (Cidade) requisicao.get(2);
+                   boolean sucesso = manterCidade.alterar(atr);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                } else if (operacao.equals("excluir")) {
+                    Cidade atr = (Cidade) requisicao.get(2);
+                   boolean sucesso = manterCidade.excluir(atr);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                }else if (operacao.equals("pesquisarPorId")) {
+                    Cidade atr = (Cidade) requisicao.get(2);
+                   Long id = atr.getCodCidade();
+                   Cidade sucesso = manterCidade.pesquisarPorId(id);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                }else if (operacao.equals("pesquisarPorCodEstado")) {
+                    Cidade atr = (Cidade) requisicao.get(2);
+                   Long id = atr.getCodCidade();
+                   Cidade sucesso = manterCidade.pesquisarPorId(id);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                }else if (operacao.equals("pesquisarPorCodEstado")) {
+                   List<Cidade> sucesso = manterCidade.pesquisarTodos();
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
                 }
+                  break;
+                 case "Cidade": 
             //Outros cases aqui
         }
         //Apos escrever no arrayList, envia a resposta
