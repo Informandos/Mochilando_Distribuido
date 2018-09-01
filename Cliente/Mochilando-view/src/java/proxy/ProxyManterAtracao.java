@@ -60,7 +60,7 @@ public class ProxyManterAtracao implements InterfaceManterAtracao {
         manterAtracao.add("alterar");
         manterAtracao.add(atracao);
         
-        //Indice de onde vai estar o long
+        //Indice de onde vai estar o boolean
         boolean result = false;
         try {
             result = (boolean) cliente.requisicao(manterAtracao).get(0);
