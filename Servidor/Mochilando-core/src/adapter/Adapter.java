@@ -15,10 +15,17 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.domain.Atracao;
+import model.domain.Cidade;
+import model.domain.Estado;
+import model.domain.TipoAtracao;
 import model.domain.Usuario;
+import model.service.implementacao.ManterAtracao;
 import model.service.implementacao.ManterUsuario;
+import model.service.interfaces.InterfaceManterAtracao;
 import model.service.interfaces.InterfaceManterUsuario;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
@@ -113,6 +120,75 @@ public class Adapter implements Runnable {
 
                 }//Demais if eleses aqui
                 break;
+         
+            case "Atracao":
+                InterfaceManterAtracao manterAtracao = new ManterAtracao();
+                operacao = (String) requisicao.get(1);
+
+                if (operacao.equals("cadastrar")) {
+                    Atracao atr = (Atracao) requisicao.get(2);
+                    Long codAtr = manterAtracao.cadastrar(atr);
+                    //Enviando somente o valor de codUsuario; 
+                    //nao precisa de passar o nome do parametro pois o cliente ja sabe o que espera
+                    if (resposta == null) {
+                        resposta.add(codAtr);
+                    }
+
+                } else if (operacao.equals("alterar")) {
+                    Atracao atr = (Atracao) requisicao.get(2);
+                   boolean sucesso = manterAtracao.alterar(atr);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                } else if (operacao.equals("excluir")) {
+                    Atracao atr = (Atracao) requisicao.get(2);
+                   boolean sucesso = manterAtracao.excluir(atr);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                }else if (operacao.equals("pesquisarPorId")) {
+                   Atracao atr = (Atracao) requisicao.get(2);
+                   Long id = atr.getSeqAtracao();
+                   Atracao sucesso = manterAtracao.pesquisarPorId(id);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                }else if (operacao.equals("pesquisarPorCodCidade")) {
+                   Atracao atr = (Atracao) requisicao.get(2);
+                   Cidade cidade = atr.getCidade();
+                   Long id = cidade.getCodCidade();
+                   List<Atracao> sucesso = manterAtracao.pesquisarPorCodCidade(id);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                }else if (operacao.equals("pesquisarPorCodEstado")) {
+                   Atracao atr = (Atracao) requisicao.get(2);
+                   Cidade cidade = atr.getCidade();
+                   Estado estado = cidade.getEstado();
+                   Long id = estado.getCodEstado();
+                   List<Atracao> sucesso = manterAtracao.pesquisarPorCodEstado(id);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                }else if (operacao.equals("pesquisarPorCodTipoAtracao")) {
+                   Atracao atr = (Atracao) requisicao.get(2);
+                   TipoAtracao tatr = atr.getTipoAtracao();
+                   Long codTipoAtracao = tatr.getCodTipoAtracao();
+                   List<Atracao> sucesso = manterAtracao.pesquisarPorCodTipoAtracao(codTipoAtracao);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                }else if (operacao.equals("pesquisarTodos")) {
+                   List<Atracao> sucesso = manterAtracao.pesquisarTodos();
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                }
+                break;
+             case "AvaliacaoComentario":
+                InterfaceManterAvaliacaoComentario manterAvaliacaoComentario = new ManterAvaliacaoComentario();
+                operacao = (String) requisicao.get(1);    
+                
             //Outros cases aqui
         }
         //Apos escrever no arrayList, envia a resposta
