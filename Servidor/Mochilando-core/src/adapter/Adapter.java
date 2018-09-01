@@ -19,13 +19,21 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.domain.Atracao;
+import model.domain.AvaliacaoComentario;
+import model.domain.AvaliacaoDiario;
 import model.domain.Cidade;
+import model.domain.Comentario;
+import model.domain.Diario;
 import model.domain.Estado;
 import model.domain.TipoAtracao;
 import model.domain.Usuario;
 import model.service.implementacao.ManterAtracao;
+import model.service.implementacao.ManterAvaliacaoComentario;
+import model.service.implementacao.ManterAvaliacaoDiario;
 import model.service.implementacao.ManterUsuario;
 import model.service.interfaces.InterfaceManterAtracao;
+import model.service.interfaces.InterfaceManterAvaliacaoComentario;
+import model.service.interfaces.InterfaceManterAvaliacaoDiario;
 import model.service.interfaces.InterfaceManterUsuario;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
@@ -188,7 +196,132 @@ public class Adapter implements Runnable {
              case "AvaliacaoComentario":
                 InterfaceManterAvaliacaoComentario manterAvaliacaoComentario = new ManterAvaliacaoComentario();
                 operacao = (String) requisicao.get(1);    
-                
+                if (operacao.equals("cadastrar")) {
+                    AvaliacaoComentario atr = (AvaliacaoComentario) requisicao.get(2);
+                    Long codAtr = manterAvaliacaoComentario.cadastrar(atr);
+                    //Enviando somente o valor de codUsuario; 
+                    //nao precisa de passar o nome do parametro pois o cliente ja sabe o que espera
+                    if (resposta == null) {
+                        resposta.add(codAtr);
+                    }
+
+                } else if (operacao.equals("alterar")) {
+                    AvaliacaoComentario atr = (AvaliacaoComentario) requisicao.get(2);
+                   boolean sucesso = manterAvaliacaoComentario.alterar(atr);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                } else if (operacao.equals("excluir")) {
+                    AvaliacaoComentario atr = (AvaliacaoComentario) requisicao.get(2);
+                   boolean sucesso = manterAvaliacaoComentario.excluir(atr);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                }else if (operacao.equals("pesquisarPorId")) {
+                   AvaliacaoComentario atr = (AvaliacaoComentario) requisicao.get(2);
+                   Long id = atr.getSeqAvaliacao();
+                   AvaliacaoComentario sucesso = manterAvaliacaoComentario.pesquisarPorId(id);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                }
+                    else if (operacao.equals("pesquisarNumAvPositivas")) {
+                   AvaliacaoComentario atr = (AvaliacaoComentario) requisicao.get(2);
+                   Comentario comentario = atr.getComentario();
+                   Long id = comentario.getSeqComentario();
+                   int sucesso = manterAvaliacaoComentario.pesquisarNumAvPositivas(id);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                } else if (operacao.equals("pesquisarNumAvNegativas")) {
+                   AvaliacaoComentario atr = (AvaliacaoComentario) requisicao.get(2);
+                   Comentario comentario = atr.getComentario();
+                   Long id = comentario.getSeqComentario();
+                   int sucesso = manterAvaliacaoComentario.pesquisarNumAvNegativas(id);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                }else if (operacao.equals("pesquisarPorDiario")) {
+                   AvaliacaoComentario atr = (AvaliacaoComentario) requisicao.get(2);
+                   Comentario comentario = atr.getComentario();
+                   Diario diario = comentario.getDiario();
+                   Long id = diario.getCodDiario();
+                   List<AvaliacaoComentario> sucesso = manterAvaliacaoComentario.pesquisarPorDiario(id);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                }else if (operacao.equals("pesquisarTodos")) {
+                   AvaliacaoComentario atr = (AvaliacaoComentario) requisicao.get(2);
+                   Long id = atr.getSeqAvaliacao();
+                   List<AvaliacaoComentario> sucesso = manterAvaliacaoComentario.pesquisarTodos(id);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                }
+                break;
+             case "AvaliacaoDiario":
+                InterfaceManterAvaliacaoDiario manterAvaliacaoDiario = new ManterAvaliacaoDiario();
+                operacao = (String) requisicao.get(1);    
+                    
+                if (operacao.equals("cadastrar")) {
+                    AvaliacaoDiario atr = (AvaliacaoDiario) requisicao.get(2);
+                    Long codAtr = manterAvaliacaoDiario.cadastrar(atr);
+                    //Enviando somente o valor de codUsuario; 
+                    //nao precisa de passar o nome do parametro pois o cliente ja sabe o que espera
+                    if (resposta == null) {
+                        resposta.add(codAtr);
+                    }
+
+                } else if (operacao.equals("alterar")) {
+                    AvaliacaoDiario atr = (AvaliacaoDiario) requisicao.get(2);
+                   boolean sucesso = manterAvaliacaoDiario.alterar(atr);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                } else if (operacao.equals("excluir")) {
+                    AvaliacaoDiario atr = (AvaliacaoDiario) requisicao.get(2);
+                   boolean sucesso =  manterAvaliacaoDiario.excluir(atr);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                }else if (operacao.equals("pesquisarPorId")) {
+                   AvaliacaoDiario atr = (AvaliacaoDiario) requisicao.get(2);
+                   Long id = atr.getSeqAvaliacao();
+                   AvaliacaoDiario sucesso =  manterAvaliacaoDiario.pesquisarPorId(id);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                }
+                    else if (operacao.equals("pesquisarNumAvPositivas")) {
+                   AvaliacaoDiario atr = (AvaliacaoDiario) requisicao.get(2);
+                  
+                   Long id = atr.getSeqAvaliacao();
+                   int sucesso =  manterAvaliacaoDiario.pesquisarNumAvPositivas(id);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                } else if (operacao.equals("pesquisarNumAvNegativas")) {
+                   AvaliacaoDiario atr = (AvaliacaoDiario) requisicao.get(2);
+                    Long id = atr.getSeqAvaliacao();
+                   int sucesso =  manterAvaliacaoDiario.pesquisarNumAvNegativas(id);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                }else if (operacao.equals("pesquisarPorDiario")) {
+                   AvaliacaoDiario atr = (AvaliacaoDiario) requisicao.get(2);
+                   
+                   Long id = atr.getSeqAvaliacao();
+                   List<AvaliacaoDiario> sucesso =  manterAvaliacaoDiario.pesquisarPorDiario(id);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                }else if (operacao.equals("pesquisarTodos")) {
+                  
+                   List<AvaliacaoDiario> sucesso =  manterAvaliacaoDiario.pesquisarTodos();
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                }
             //Outros cases aqui
         }
         //Apos escrever no arrayList, envia a resposta
