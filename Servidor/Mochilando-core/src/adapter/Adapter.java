@@ -34,6 +34,7 @@ import model.service.implementacao.ManterAvaliacaoComentario;
 import model.service.implementacao.ManterAvaliacaoDiario;
 import model.service.implementacao.ManterCidade;
 import model.service.implementacao.ManterComentario;
+import model.service.implementacao.ManterTipoAtracao;
 import model.service.implementacao.ManterUsuario;
 import model.service.implementacao.ManterUsuarioTag;
 import model.service.interfaces.InterfaceManterAtracao;
@@ -41,6 +42,7 @@ import model.service.interfaces.InterfaceManterAvaliacaoComentario;
 import model.service.interfaces.InterfaceManterAvaliacaoDiario;
 import model.service.interfaces.InterfaceManterCidade;
 import model.service.interfaces.InterfaceManterComentario;
+import model.service.interfaces.InterfaceManterTipoAtracao;
 import model.service.interfaces.InterfaceManterUsuario;
 import model.service.interfaces.InterfaceManterUsuarioTag;
 import util.db.exception.ExcecaoNegocio;
@@ -231,6 +233,52 @@ public class Adapter implements Runnable {
                     if (resposta == null) {
                         resposta.add(sucesso);
                     }
+                }
+                
+                break;
+                
+            case "TipoAtracao":
+                InterfaceManterTipoAtracao manterTipoAtracao = new ManterTipoAtracao();
+                operacao = (String) requisicao.get(1);
+                
+                if (operacao.equals("cadastrar")) {
+                    TipoAtracao tipoAtr = (TipoAtracao) requisicao.get(2);
+                    Long codTipoAtr = manterTipoAtracao.cadastrar(tipoAtr);
+                    if (resposta == null) {
+                        resposta.add(codTipoAtr);
+                    }
+                } else if (operacao.equals("alterar")) {
+                   TipoAtracao tipoAtr = (TipoAtracao) requisicao.get(2);
+                   boolean sucesso = manterTipoAtracao.alterar(tipoAtr);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                } else if (operacao.equals("excluir")) {
+                   TipoAtracao tipoAtr = (TipoAtracao) requisicao.get(2);
+                   boolean sucesso = manterTipoAtracao.excluir(tipoAtr);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                } else if (operacao.equals("pesquisarPorId")) {
+                   TipoAtracao tipoAtr = (TipoAtracao) requisicao.get(2);
+                   Long id = tipoAtr.getCodTipoAtracao();
+                   TipoAtracao sucesso = manterTipoAtracao.pesquisarPorId(id);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                } else if (operacao.equals("pesquisarPorNome")) {
+                   TipoAtracao tipoAtr = (TipoAtracao) requisicao.get(2);
+                   String descTipoAtracao = tipoAtr.getDescTipoAtracao();
+                   TipoAtracao sucesso = manterTipoAtracao.pesquisarPorNome(descTipoAtracao);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                } else if (operacao.equals("pesquisarTodos")) {
+                   TipoAtracao tipoAtr = (TipoAtracao) requisicao.get(2);
+                   List<TipoAtracao> sucesso = manterTipoAtracao.pesquisarTodos();
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
                 }
                 
                 break;
