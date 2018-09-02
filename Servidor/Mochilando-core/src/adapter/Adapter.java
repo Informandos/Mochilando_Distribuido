@@ -136,7 +136,44 @@ public class Adapter implements Runnable {
                         resposta.add(sucesso);
                     }
 
-                }//Demais if eleses aqui
+                } else if (operacao.equals("excluir")) {
+                    Usuario usr = (Usuario) requisicao.get(2);
+                    boolean sucesso = manterUsuario.excluir(usr);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+
+                } else if (operacao.equals("pesquisarTodos")) {
+                    Usuario usr = (Usuario) requisicao.get(2);
+                    List<Usuario> sucesso = manterUsuario.pesquisarTodos();
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+
+                } else if (operacao.equals("pesquisarPorId")) {
+                    Usuario usr = (Usuario) requisicao.get(2);
+                    Long id  = usr.getCodUsuario();
+                    Usuario sucesso = manterUsuario.pesquisarPorId(id);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+
+                } else if (operacao.equals("getUserLogin")) {
+                    Usuario usr = (Usuario) requisicao.get(2);
+                    String email = usr.getTxtEmail();
+                    String senha = usr.getTxtSenha();
+                    Usuario sucesso = manterUsuario.getUserLogin(email, senha);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                } else if (operacao.equals("getUserEmail")) {
+                    Usuario usr = (Usuario) requisicao.get(2);
+                    String email = usr.getTxtEmail();
+                    Usuario sucesso = manterUsuario.getUserEmail(email);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                } 
                 break;
          
             case "Atracao":
