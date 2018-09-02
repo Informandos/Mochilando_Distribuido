@@ -49,6 +49,8 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
             result = (Long) cliente.requisicao(manterAvaliacaoComentario).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ProxyManterAvaliacaoComentario.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
     }
@@ -66,6 +68,8 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
             result = (Boolean) cliente.requisicao(manterAvaliacaoComentario).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ProxyManterAvaliacaoComentario.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
     }
@@ -83,6 +87,8 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
             result = (Boolean) cliente.requisicao(manterAvaliacaoComentario).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ProxyManterAvaliacaoComentario.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
     
@@ -99,6 +105,8 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
             result = (AvaliacaoComentario) cliente.requisicao(manterAvaliacaoComentario).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ProxyManterAvaliacaoComentario.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result; 
         
@@ -115,6 +123,8 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
             result = (int) cliente.requisicao(manterAvaliacaoComentario).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ProxyManterAvaliacaoComentario.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result; 
     }
@@ -130,6 +140,8 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
             result = (int) cliente.requisicao(manterAvaliacaoComentario).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ProxyManterAvaliacaoComentario.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result; 
     }
@@ -145,6 +157,8 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
             result = ( List<AvaliacaoComentario>) cliente.requisicao(manterAvaliacaoComentario).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ProxyManterAvaliacaoComentario.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result; 
     }
@@ -160,6 +174,8 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
             result = ( List<AvaliacaoComentario>) cliente.requisicao(manterAvaliacaoComentario).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ProxyManterAvaliacaoComentario.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result; 
     }
