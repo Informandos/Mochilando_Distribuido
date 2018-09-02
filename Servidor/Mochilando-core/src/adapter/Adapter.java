@@ -26,6 +26,7 @@ import model.domain.Comentario;
 import model.domain.Diario;
 import model.domain.Estado;
 import model.domain.Tag;
+import model.domain.TagDiario;
 import model.domain.TipoAtracao;
 import model.domain.Usuario;
 import model.domain.UsuarioTag;
@@ -34,6 +35,7 @@ import model.service.implementacao.ManterAvaliacaoComentario;
 import model.service.implementacao.ManterAvaliacaoDiario;
 import model.service.implementacao.ManterCidade;
 import model.service.implementacao.ManterComentario;
+import model.service.implementacao.ManterTagDiario;
 import model.service.implementacao.ManterTipoAtracao;
 import model.service.implementacao.ManterUsuario;
 import model.service.implementacao.ManterUsuarioTag;
@@ -42,6 +44,7 @@ import model.service.interfaces.InterfaceManterAvaliacaoComentario;
 import model.service.interfaces.InterfaceManterAvaliacaoDiario;
 import model.service.interfaces.InterfaceManterCidade;
 import model.service.interfaces.InterfaceManterComentario;
+import model.service.interfaces.InterfaceManterTagDiario;
 import model.service.interfaces.InterfaceManterTipoAtracao;
 import model.service.interfaces.InterfaceManterUsuario;
 import model.service.interfaces.InterfaceManterUsuarioTag;
@@ -150,7 +153,6 @@ public class Adapter implements Runnable {
                     }
 
                 } else if (operacao.equals("pesquisarTodos")) {
-                    Usuario usr = (Usuario) requisicao.get(2);
                     List<Usuario> sucesso = manterUsuario.pesquisarTodos();
                     if (resposta == null) {
                         resposta.add(sucesso);
@@ -214,21 +216,20 @@ public class Adapter implements Runnable {
                         resposta.add(sucesso);
                     }
                 } else if (operacao.equals("pesquisarTodos")) {
-                    UsuarioTag usrTag = (UsuarioTag) requisicao.get(2);
                     List<UsuarioTag> sucesso = manterUsuarioTag.pesquisarTodos();
                     if (resposta == null) {
                         resposta.add(sucesso);
                     }
                 } else if (operacao.equals("pesquisarPorCodUsuario")) {
                     UsuarioTag usrTag = (UsuarioTag) requisicao.get(2);
-                    Long codUsuario = usrTag.getSeqUsuarioTag();
+                    Long codUsuario = usrTag.getSeqUsuarioTag();//revisar tipo da variável 
                     List<UsuarioTag> sucesso = manterUsuarioTag.pesquisarPorCodUsuario(codUsuario);
                     if (resposta == null) {
                         resposta.add(sucesso);
                     }
                 } else if (operacao.equals("pesquisarPorCodTag")) {
                     UsuarioTag usrTag = (UsuarioTag) requisicao.get(2);
-                    Long codTag = usrTag.getSeqUsuarioTag();
+                    Long codTag = usrTag.getSeqUsuarioTag();//revisar tipo da variável 
                     List<UsuarioTag> sucesso = manterUsuarioTag.pesquisarPorCodTag(codTag);
                     if (resposta == null) {
                         resposta.add(sucesso);
@@ -274,11 +275,62 @@ public class Adapter implements Runnable {
                         resposta.add(sucesso);
                     } 
                 } else if (operacao.equals("pesquisarTodos")) {
-                   TipoAtracao tipoAtr = (TipoAtracao) requisicao.get(2);
                    List<TipoAtracao> sucesso = manterTipoAtracao.pesquisarTodos();
                     if (resposta == null) {
                         resposta.add(sucesso);
                     } 
+                }
+                               
+                break;
+                
+            case "TagDiario":
+                InterfaceManterTagDiario manterTagDiario = new ManterTagDiario();
+                operacao = (String) requisicao.get(1); 
+                
+                if (operacao.equals("cadastrar")) {
+                    TagDiario tDiario = (TagDiario) requisicao.get(2);
+                    Long tagDiario = manterTagDiario.cadastrar(tDiario);
+                    if (resposta == null) {
+                        resposta.add(tagDiario);
+                    }
+                } else if (operacao.equals("alterar")) {
+                    TagDiario tDiario = (TagDiario) requisicao.get(2);
+                    boolean sucesso = manterTagDiario.alterar(tDiario);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                } else if (operacao.equals("excluir")) {
+                    TagDiario tDiario = (TagDiario) requisicao.get(2);
+                    boolean sucesso = manterTagDiario.excluir(tDiario);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                } else if (operacao.equals("pesquisarPorId")) {
+                    TagDiario tDiario = (TagDiario) requisicao.get(2);
+                    Long seqTagDiario = tDiario.getSeqTagDiario();
+                    TagDiario sucesso = manterTagDiario.pesquisarPorId(seqTagDiario);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                } else if (operacao.equals("pesquisarTodos")) {
+                    List<TagDiario> sucesso = manterTagDiario.pesquisarTodos();
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                } else if (operacao.equals("pesquisarPorCodDiario")) {
+                    TagDiario tDiario = (TagDiario) requisicao.get(2);
+                    Long codDiario = tDiario.getSeqTagDiario();//revisar tipo da variável 
+                    List<TagDiario> sucesso = manterTagDiario.pesquisarPorCodDiario(codDiario);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                } else if (operacao.equals("pesquisarPorCodTag")) {
+                    TagDiario tDiario = (TagDiario) requisicao.get(2);
+                    Long codTag = tDiario.getSeqTagDiario();//revisar tipo da variável 
+                    List<TagDiario> sucesso = manterTagDiario.pesquisarPorCodTag(codTag);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
                 }
                 
                 break;
@@ -295,7 +347,6 @@ public class Adapter implements Runnable {
                     if (resposta == null) {
                         resposta.add(codAtr);
                     }
-
                 } else if (operacao.equals("alterar")) {
                     Atracao atr = (Atracao) requisicao.get(2);
                    boolean sucesso = manterAtracao.alterar(atr);
