@@ -32,10 +32,8 @@ public class ProxyManterCidade implements InterfaceManterCidade {
             3) Parametro(s) da operacao (Objeto, String ou Long)
      */
     public ProxyManterCidade() throws SocketException, UnknownHostException{
-         cliente = Cliente.getInstance();
-   
-    
-}
+         cliente = Cliente.getInstance();   
+    }
 
     @Override
     public Long cadastrar(Cidade cidade) throws ExcecaoPersistencia, ExcecaoNegocio {

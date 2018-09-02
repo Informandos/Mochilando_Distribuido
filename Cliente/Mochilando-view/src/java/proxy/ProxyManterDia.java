@@ -33,8 +33,10 @@ public class ProxyManterDia implements InterfaceManterDia{
         try {
             result = (Long) cliente.requisicao(manterDia).get(0);
         } catch (IOException ex) {
-            Logger.getLogger(ProxyManterDia.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterDia.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -49,8 +51,10 @@ public class ProxyManterDia implements InterfaceManterDia{
         try {
             result = (boolean) cliente.requisicao(manterDia).get(0);
         } catch (IOException ex) {
-            Logger.getLogger(ProxyManterDia.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterDia.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -65,8 +69,10 @@ public class ProxyManterDia implements InterfaceManterDia{
         try {
             result = (boolean) cliente.requisicao(manterDia).get(0);
         } catch (IOException ex) {
-            Logger.getLogger(ProxyManterDia.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterDia.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -80,8 +86,10 @@ public class ProxyManterDia implements InterfaceManterDia{
         try {
             result = (Dia) cliente.requisicao(manterDia).get(0);
         } catch (IOException ex) {
-            Logger.getLogger(ProxyManterDia.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterDia.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -96,8 +104,10 @@ public class ProxyManterDia implements InterfaceManterDia{
         try {
             result = (List<Dia>) cliente.requisicao(manterDia).get(0);
         } catch (IOException ex) {
-            Logger.getLogger(ProxyManterDia.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterDia.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -111,8 +121,10 @@ public class ProxyManterDia implements InterfaceManterDia{
         try {
             result = (List<Dia>) cliente.requisicao(manterDia).get(0);
         } catch (IOException ex) {
-            Logger.getLogger(ProxyManterDia.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterDia.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
     

@@ -34,6 +34,7 @@ public class ProxyManterAvaliacaoDiario implements InterfaceManterAvaliacaoDiari
     public ProxyManterAvaliacaoDiario() throws SocketException, UnknownHostException{
          cliente = Cliente.getInstance();
     }
+    
     @Override
     public Long cadastrar(AvaliacaoDiario avaliacaoDiario) throws ExcecaoPersistencia, ExcecaoNegocio {
          manterAvaliacaoDiario = new ArrayList();
@@ -48,7 +49,7 @@ public class ProxyManterAvaliacaoDiario implements InterfaceManterAvaliacaoDiari
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }catch (ClassNotFoundException ex) {
-             Logger.getLogger(ProxyManterAtracao.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(ProxyManterAvaliacaoDiario.class.getName()).log(Level.SEVERE, null, ex);
          }
         return result;
     }

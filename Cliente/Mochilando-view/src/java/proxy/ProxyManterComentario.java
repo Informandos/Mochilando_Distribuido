@@ -33,6 +33,9 @@ public class ProxyManterComentario implements InterfaceManterComentario {
             3) Parametro(s) da operacao (Objeto, String ou Long)
      */
    
+    public ProxyManterComentario() throws SocketException, UnknownHostException{
+         cliente = Cliente.getInstance();   
+    }
          
     @Override
     public Long cadastrar(Comentario comentario) throws ExcecaoPersistencia, ExcecaoNegocio {
@@ -47,7 +50,9 @@ public class ProxyManterComentario implements InterfaceManterComentario {
             result = (Long) cliente.requisicao(manterComentario).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterComentario.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -64,7 +69,9 @@ public class ProxyManterComentario implements InterfaceManterComentario {
             result = (boolean) cliente.requisicao(manterComentario).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterComentario.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -81,7 +88,9 @@ public class ProxyManterComentario implements InterfaceManterComentario {
             result = (boolean) cliente.requisicao(manterComentario).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterComentario.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -98,7 +107,9 @@ public class ProxyManterComentario implements InterfaceManterComentario {
             result = (Comentario) cliente.requisicao(manterComentario).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterComentario.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -115,7 +126,9 @@ public class ProxyManterComentario implements InterfaceManterComentario {
             result = (List<Comentario>) cliente.requisicao(manterComentario).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterComentario.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -132,7 +145,9 @@ public class ProxyManterComentario implements InterfaceManterComentario {
             result = (List<Comentario>) cliente.requisicao(manterComentario).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterComentario.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
     
