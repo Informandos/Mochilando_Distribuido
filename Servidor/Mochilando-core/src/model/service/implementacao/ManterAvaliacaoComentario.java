@@ -6,6 +6,7 @@ import java.util.List;
 import model.dao.implementacao.AvaliacaoComentarioDAO;
 import model.dao.interfaces.InterfaceAvaliacaoComentarioDAO;
 import model.domain.AvaliacaoComentario;
+import model.domain.AvaliacaoDiario;
 import model.service.interfaces.InterfaceManterAvaliacaoComentario;
 
 public class ManterAvaliacaoComentario implements InterfaceManterAvaliacaoComentario{
@@ -56,38 +57,38 @@ public class ManterAvaliacaoComentario implements InterfaceManterAvaliacaoComent
 
     @Override
     public boolean excluir(AvaliacaoComentario avaliacaoComentario) throws ExcecaoPersistencia, ExcecaoNegocio {
-        boolean result = aComntDAO.deletar(avaliacaoComentario);
-        return result;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public AvaliacaoComentario pesquisarPorId(Long seqAvaliacao) throws ExcecaoPersistencia {
-        AvaliacaoComentario result = aComntDAO.consultarPorId(seqAvaliacao);
-        return result;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public int pesquisarNumAvPositivas(Long seqComentario) throws ExcecaoPersistencia {
-        int result = aComntDAO.consultarNumAvPositivas(seqComentario);
-        return result;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public int pesquisarNumAvNegativas(Long seqComentario) throws ExcecaoPersistencia {
-        int result = aComntDAO.consultarNumAvNegativas(seqComentario);
-        return result;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public List<AvaliacaoComentario> pesquisarPorDiario(Long codDiario) throws ExcecaoPersistencia {
-        List<AvaliacaoComentario> result = aComntDAO.listarPorDiario(codDiario);
-        return result;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public List<AvaliacaoComentario> pesquisarTodos(Long seqAvaliacao) throws ExcecaoPersistencia {
-        List<AvaliacaoComentario> result = aComntDAO.listarTudo(seqAvaliacao);
-        return result;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public boolean alterar(AvaliacaoDiario atr) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }

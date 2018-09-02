@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.domain.AvaliacaoComentario;
+import model.domain.AvaliacaoDiario;
 import model.service.interfaces.InterfaceManterAvaliacaoComentario;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
@@ -56,10 +57,10 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
     public boolean alterar(AvaliacaoComentario avaliacaoComentario) throws ExcecaoPersistencia, ExcecaoNegocio {
         manterAvaliacaoComentario = new ArrayList();
         manterAvaliacaoComentario.add("AvaliacaoComentario");
-        manterAvaliacaoComentario.add("cadastrar");
+        manterAvaliacaoComentario.add("alterar");
         manterAvaliacaoComentario.add(avaliacaoComentario);
         
-        //Indice de onde vai estar o long
+        //Indice de onde vai estar o boolean
         boolean result = false;
         try {
             result = (Boolean) cliente.requisicao(manterAvaliacaoComentario).get(0);
@@ -71,31 +72,100 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
 
     @Override
     public boolean excluir(AvaliacaoComentario avaliacaoComentario) throws ExcecaoPersistencia, ExcecaoNegocio {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manterAvaliacaoComentario = new ArrayList();
+        manterAvaliacaoComentario.add("AvaliacaoComentario");
+        manterAvaliacaoComentario.add("excluir");
+        manterAvaliacaoComentario.add(avaliacaoComentario);
+        
+        //Indice de onde vai estar o boolean
+        boolean result = false;
+        try {
+            result = (Boolean) cliente.requisicao(manterAvaliacaoComentario).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
+    
     }
 
     @Override
     public AvaliacaoComentario pesquisarPorId(Long seqAvaliacao) throws ExcecaoPersistencia {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manterAvaliacaoComentario = new ArrayList();
+        manterAvaliacaoComentario.add("AvaliacaoComentario");
+        manterAvaliacaoComentario.add("pesquisarPorId");
+        manterAvaliacaoComentario.add(seqAvaliacao);
+       AvaliacaoComentario result = null;
+        try {
+            result = (AvaliacaoComentario) cliente.requisicao(manterAvaliacaoComentario).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result; 
+        
     }
 
     @Override
     public int pesquisarNumAvPositivas(Long seqComentario) throws ExcecaoPersistencia {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manterAvaliacaoComentario = new ArrayList();
+        manterAvaliacaoComentario.add("AvaliacaoComentario");
+        manterAvaliacaoComentario.add("pesquisarNumAvPositivas");
+        manterAvaliacaoComentario.add(seqComentario);
+       int result = 0;
+        try {
+            result = (int) cliente.requisicao(manterAvaliacaoComentario).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result; 
     }
 
     @Override
     public int pesquisarNumAvNegativas(Long seqComentario) throws ExcecaoPersistencia {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         manterAvaliacaoComentario = new ArrayList();
+        manterAvaliacaoComentario.add("AvaliacaoComentario");
+        manterAvaliacaoComentario.add("pesquisarNumAvNegativas");
+        manterAvaliacaoComentario.add(seqComentario);
+       int result = 0;
+        try {
+            result = (int) cliente.requisicao(manterAvaliacaoComentario).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result; 
     }
 
     @Override
     public List<AvaliacaoComentario> pesquisarPorDiario(Long codDiario) throws ExcecaoPersistencia {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manterAvaliacaoComentario = new ArrayList();
+        manterAvaliacaoComentario.add("AvaliacaoComentario");
+        manterAvaliacaoComentario.add("pesquisarPorDiario");
+        manterAvaliacaoComentario.add(codDiario);
+       List<AvaliacaoComentario> result = null;
+        try {
+            result = ( List<AvaliacaoComentario>) cliente.requisicao(manterAvaliacaoComentario).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result; 
     }
 
     @Override
     public List<AvaliacaoComentario> pesquisarTodos(Long seqAvaliacao) throws ExcecaoPersistencia {
+         manterAvaliacaoComentario = new ArrayList();
+        manterAvaliacaoComentario.add("AvaliacaoComentario");
+        manterAvaliacaoComentario.add("pesquisarTodos");
+        manterAvaliacaoComentario.add(seqAvaliacao);
+       List<AvaliacaoComentario> result = null;
+        try {
+            result = ( List<AvaliacaoComentario>) cliente.requisicao(manterAvaliacaoComentario).get(0);
+        } catch (IOException ex) {
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result; 
+    }
+
+    @Override
+    public boolean alterar(AvaliacaoDiario atr) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

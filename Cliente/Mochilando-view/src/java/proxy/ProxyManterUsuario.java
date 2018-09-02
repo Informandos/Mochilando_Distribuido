@@ -91,7 +91,6 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
         manterUsuario.add("Usuario");
         manterUsuario.add("pesquisarTodos");
         
-        
         List<Usuario> result = null;
         try {
             result = (List<Usuario>) cliente.requisicao(manterUsuario).get(0);
