@@ -47,11 +47,9 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
         Long result = 0L;
         try {
             result = (Long) cliente.requisicao(manterUsuario).get(0);
-        } catch (IOException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
-             Logger.getLogger(ProxyManterAtracao.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        }
         return result;
     }
 
@@ -65,11 +63,9 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
         boolean result = false;
         try {
             result = (boolean) cliente.requisicao(manterUsuario).get(0);
-        } catch (IOException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
-             Logger.getLogger(ProxyManterAtracao.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        }
         return result;
     }
 
@@ -83,11 +79,9 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
         boolean result = false;
         try {
             result = (boolean) cliente.requisicao(manterUsuario).get(0);
-        } catch (IOException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
-             Logger.getLogger(ProxyManterAtracao.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        }
         return result;
     }
 
@@ -100,11 +94,9 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
         List<Usuario> result = null;
         try {
             result = (List<Usuario>) cliente.requisicao(manterUsuario).get(0);
-        } catch (IOException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
-             Logger.getLogger(ProxyManterAtracao.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        }
         return result;
     }
 
@@ -118,11 +110,9 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
         Usuario result = null;
         try {
             result = (Usuario) cliente.requisicao(manterUsuario).get(0);
-        } catch (IOException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
-             Logger.getLogger(ProxyManterAtracao.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        }
         return result;
     }
 
@@ -137,11 +127,9 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
         Usuario result = null;
         try {
             result = (Usuario) cliente.requisicao(manterUsuario).get(0);
-        } catch (IOException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
-             Logger.getLogger(ProxyManterAtracao.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        }
         return result;
     }
 
@@ -155,11 +143,9 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
         Usuario result = null;
         try {
             result = (Usuario) cliente.requisicao(manterUsuario).get(0);
-        } catch (IOException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
-             Logger.getLogger(ProxyManterAtracao.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        }
         return result;
     }
 

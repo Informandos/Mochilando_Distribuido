@@ -51,7 +51,9 @@ public class ProxyManterCidade implements InterfaceManterCidade {
             result = (Long) cliente.requisicao(manterCidade).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterCidade.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -68,7 +70,9 @@ public class ProxyManterCidade implements InterfaceManterCidade {
             result = (boolean) cliente.requisicao(manterCidade).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterCidade.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -85,7 +89,9 @@ public class ProxyManterCidade implements InterfaceManterCidade {
             result = (boolean) cliente.requisicao(manterCidade).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterCidade.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -102,7 +108,9 @@ public class ProxyManterCidade implements InterfaceManterCidade {
             result = (Cidade) cliente.requisicao(manterCidade).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterCidade.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -119,7 +127,9 @@ public class ProxyManterCidade implements InterfaceManterCidade {
             result = (List<Cidade>) cliente.requisicao(manterCidade).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterCidade.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -136,7 +146,9 @@ public class ProxyManterCidade implements InterfaceManterCidade {
             result = (List<Cidade>) cliente.requisicao(manterCidade).get(0);
         } catch (IOException ex) {
             Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterCidade.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 }
