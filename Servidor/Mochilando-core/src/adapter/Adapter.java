@@ -25,20 +25,24 @@ import model.domain.Cidade;
 import model.domain.Comentario;
 import model.domain.Diario;
 import model.domain.Estado;
+import model.domain.Tag;
 import model.domain.TipoAtracao;
 import model.domain.Usuario;
+import model.domain.UsuarioTag;
 import model.service.implementacao.ManterAtracao;
 import model.service.implementacao.ManterAvaliacaoComentario;
 import model.service.implementacao.ManterAvaliacaoDiario;
 import model.service.implementacao.ManterCidade;
 import model.service.implementacao.ManterComentario;
 import model.service.implementacao.ManterUsuario;
+import model.service.implementacao.ManterUsuarioTag;
 import model.service.interfaces.InterfaceManterAtracao;
 import model.service.interfaces.InterfaceManterAvaliacaoComentario;
 import model.service.interfaces.InterfaceManterAvaliacaoDiario;
 import model.service.interfaces.InterfaceManterCidade;
 import model.service.interfaces.InterfaceManterComentario;
 import model.service.interfaces.InterfaceManterUsuario;
+import model.service.interfaces.InterfaceManterUsuarioTag;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
@@ -174,6 +178,61 @@ public class Adapter implements Runnable {
                         resposta.add(sucesso);
                     }
                 } 
+                break;
+                
+            case "UsuarioTag":
+                InterfaceManterUsuarioTag manterUsuarioTag = new ManterUsuarioTag();
+                operacao = (String) requisicao.get(1);
+                
+                if (operacao.equals("cadastrar")) {
+                    UsuarioTag usrTag = (UsuarioTag) requisicao.get(2);
+                    Long codUsrTag = manterUsuarioTag.cadastrar(usrTag);
+                    if (resposta == null) {
+                        resposta.add(codUsrTag);
+                    }
+
+                } else if (operacao.equals("alterar")) {
+                    UsuarioTag usrTag = (UsuarioTag) requisicao.get(2);
+                    boolean sucesso = manterUsuarioTag.alterar(usrTag);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+
+                } else if (operacao.equals("excluir")) {
+                    UsuarioTag usrTag = (UsuarioTag) requisicao.get(2);
+                    boolean sucesso = manterUsuarioTag.excluir(usrTag);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                } else if (operacao.equals("pesquisarPorId")) {
+                    UsuarioTag usrTag = (UsuarioTag) requisicao.get(2);
+                    Long id = usrTag.getSeqUsuarioTag();
+                    UsuarioTag sucesso = manterUsuarioTag.pesquisarPorId(id);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                } else if (operacao.equals("pesquisarTodos")) {
+                    UsuarioTag usrTag = (UsuarioTag) requisicao.get(2);
+                    List<UsuarioTag> sucesso = manterUsuarioTag.pesquisarTodos();
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                } else if (operacao.equals("pesquisarPorCodUsuario")) {
+                    UsuarioTag usrTag = (UsuarioTag) requisicao.get(2);
+                    Long codUsuario = usrTag.getSeqUsuarioTag();
+                    List<UsuarioTag> sucesso = manterUsuarioTag.pesquisarPorCodUsuario(codUsuario);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                } else if (operacao.equals("pesquisarPorCodTag")) {
+                    UsuarioTag usrTag = (UsuarioTag) requisicao.get(2);
+                    Long codTag = usrTag.getSeqUsuarioTag();
+                    List<UsuarioTag> sucesso = manterUsuarioTag.pesquisarPorCodTag(codTag);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                }
+                
                 break;
          
             case "Atracao":
