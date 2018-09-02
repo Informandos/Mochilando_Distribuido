@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.domain.Atracao;
-
 import model.service.interfaces.InterfaceManterAtracao;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
