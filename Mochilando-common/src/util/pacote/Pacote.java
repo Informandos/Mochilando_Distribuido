@@ -1,9 +1,11 @@
+package util.pacote;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cliente;
+
 
 import java.util.ArrayList;
 
@@ -13,9 +15,11 @@ import java.util.ArrayList;
  */
 public class Pacote {
     
-    private final int ordem;
-    private final byte[] conteudo;
+    private int ordem;
+    private byte[] conteudo;
 
+    
+    
     public Pacote( int ordem, byte[] conteudo) {
       
         this.ordem = ordem;
@@ -24,6 +28,18 @@ public class Pacote {
     
     public byte[] getConteudo(){
         return this.conteudo;
+    }
+    
+    public int getOrdem(){
+        return this.ordem;
+    }
+    
+    public void setOrdem(int ordem){
+        this.ordem = ordem;
+    }
+
+    public void setConteudo(byte[] conteudo) {
+        this.conteudo = conteudo;
     }
     
 }

@@ -10,6 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -37,14 +38,15 @@ public class Conversao {
 
         return baos.toByteArray();
     }
-    
+
     public Object byteParaObjeto(byte[] bytes) throws IOException, ClassNotFoundException {
         ObjectInputStream ois;
         Object arrayConvertido;
-        try (ByteArrayInputStream bais = new ByteArrayInputStream(bytes)) {
-            ois = new ObjectInputStream(bais);
-            arrayConvertido = (Object) ois.readObject();
-        }
+        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+        System.out.println("bytes"+Arrays.toString(bytes));
+        ois = new ObjectInputStream(bais);
+        arrayConvertido = (Object) ois.readObject();
+
         ois.close();
         return arrayConvertido;
     }

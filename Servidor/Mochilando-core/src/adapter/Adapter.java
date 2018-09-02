@@ -48,7 +48,7 @@ import util.db.exception.ExcecaoPersistencia;
  */
 
 /*
-    Esta classse e responsavel por tratar o pacote vindo e retornar para o cliente
+    Esta classse e responsavel por tratar o arraylist vindo e retornar para o cliente
  */
 public class Adapter implements Runnable {
 
@@ -65,19 +65,25 @@ public class Adapter implements Runnable {
     //Vetor de bytes a ser recebido do cliente
     private byte[] vetorBytesVindoCliente = new byte[TAMANHO_MAXIMO_DATAGRAMA_UDP];
 
-    //Tamanho do pacote a ser recebido:
-    private final int tamanhoPacoteEmBytes;
+    
 
     //Endereco IP do cliente (usado para mandar resposta)
     InetAddress enderecoIPCliente;
 
     //Porta do cliente (usado para mandar resposta)
     int portaCliente;
-
+    
+    public Adapter(ArrayList requisicao, InetAddress enderecoIPCliente, int portaCliente){
+        
+        this.requisicao = requisicao;
+        this.enderecoIPCliente =  enderecoIPCliente;
+        this.portaCliente = portaCliente;
+    }
+/*
     public Adapter(DatagramPacket datagramaReceber) throws IOException, ClassNotFoundException {
-        /* 
+        //
             Construtor responsavel por inicializar variaveis de pacote
-        */
+        //
         
         //Pegando dados do pacote
         vetorBytesVindoCliente = datagramaReceber.getData();
@@ -104,7 +110,7 @@ public class Adapter implements Runnable {
 
         //O construtor deixa o arraylist requisicao pronto para ser tratado
     }
-
+*/
     public void tratarRequisicao() throws ExcecaoPersistencia, ExcecaoNegocio, IOException {
         String tipoObjeto = (String) requisicao.get(0);
         String operacao;
