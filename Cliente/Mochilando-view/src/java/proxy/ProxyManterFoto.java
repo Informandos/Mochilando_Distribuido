@@ -32,8 +32,10 @@ public class ProxyManterFoto implements InterfaceManterFoto{
         try {
             result = (Long) cliente.requisicao(manterFoto).get(0);
         } catch (IOException ex) {
-            Logger.getLogger(ProxyManterFoto.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterFoto.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -48,8 +50,10 @@ public class ProxyManterFoto implements InterfaceManterFoto{
         try {
             result = (boolean) cliente.requisicao(manterFoto).get(0);
         } catch (IOException ex) {
-            Logger.getLogger(ProxyManterEstado.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterFoto.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -64,8 +68,10 @@ public class ProxyManterFoto implements InterfaceManterFoto{
         try {
             result = (boolean) cliente.requisicao(manterFoto).get(0);
         } catch (IOException ex) {
-            Logger.getLogger(ProxyManterFoto.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterFoto.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -80,8 +86,10 @@ public class ProxyManterFoto implements InterfaceManterFoto{
         try {
             result = (Foto) cliente.requisicao(manterFoto).get(0);
         } catch (IOException ex) {
-            Logger.getLogger(ProxyManterFoto.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterFoto.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -95,8 +103,10 @@ public class ProxyManterFoto implements InterfaceManterFoto{
         try {
             result = (List<Foto>) cliente.requisicao(manterFoto).get(0);
         } catch (IOException ex) {
-            Logger.getLogger(ProxyManterFoto.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterFoto.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
 
@@ -111,8 +121,10 @@ public class ProxyManterFoto implements InterfaceManterFoto{
         try {
             result = (List<Foto>) cliente.requisicao(manterFoto).get(0);
         } catch (IOException ex) {
-            Logger.getLogger(ProxyManterFoto.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+             Logger.getLogger(ProxyManterFoto.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return result;
     }
     
