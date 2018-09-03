@@ -35,6 +35,7 @@ import model.service.implementacao.ManterAvaliacaoComentario;
 import model.service.implementacao.ManterAvaliacaoDiario;
 import model.service.implementacao.ManterCidade;
 import model.service.implementacao.ManterComentario;
+import model.service.implementacao.ManterTag;
 import model.service.implementacao.ManterTagDiario;
 import model.service.implementacao.ManterTipoAtracao;
 import model.service.implementacao.ManterUsuario;
@@ -44,6 +45,7 @@ import model.service.interfaces.InterfaceManterAvaliacaoComentario;
 import model.service.interfaces.InterfaceManterAvaliacaoDiario;
 import model.service.interfaces.InterfaceManterCidade;
 import model.service.interfaces.InterfaceManterComentario;
+import model.service.interfaces.InterfaceManterTag;
 import model.service.interfaces.InterfaceManterTagDiario;
 import model.service.interfaces.InterfaceManterTipoAtracao;
 import model.service.interfaces.InterfaceManterUsuario;
@@ -334,7 +336,47 @@ public class Adapter implements Runnable {
                 }
                 
                 break;
-         
+                
+            case "Tag":
+                InterfaceManterTag manterTag = new ManterTag();
+                operacao = (String) requisicao.get(1); 
+                
+                if (operacao.equals("cadastrar")) {
+                    Long tag = (Long) requisicao.get(2);// Possível erro no tipo do método cadastrar
+                    //Tag tag = manterTag.cadastrar(tag);
+                    if (resposta == null) {
+                        resposta.add(tag);
+                    }
+                } else if (operacao.equals("alterar")) {
+                    Tag tag = (Tag) requisicao.get(2);
+                    boolean sucesso = manterTag.alterar(tag);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                } else if (operacao.equals("excluir")) {
+                    Tag tag = (Tag) requisicao.get(2);
+                    boolean sucesso = manterTag.excluir(tag);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                } else if (operacao.equals("pesquisarPorId")) {
+                    Tag tag = (Tag) requisicao.get(2);
+                    Long codTag = tag.getCodTag();
+                    Tag sucesso = manterTag.pesquisarPorId(codTag);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                } else if (operacao.equals("pesquisarPorNome")) {
+                    Tag tag = (Tag) requisicao.get(2);
+                    String descTag = tag.getDescTag();
+                    Tag sucesso = manterTag.pesquisarPorNome(descTag);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    }
+                }
+
+                break;
+                
             case "Atracao":
                 InterfaceManterAtracao manterAtracao = new ManterAtracao();
                 operacao = (String) requisicao.get(1);
