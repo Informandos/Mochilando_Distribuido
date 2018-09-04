@@ -75,6 +75,7 @@ public class ProxyManterDiaAtracao implements InterfaceManterDiaAtracao {
         manterDiaAtracao = new ArrayList();
         manterDiaAtracao.add("DiaAtracao");
         manterDiaAtracao.add("pesquisarPorId");
+        manterDiaAtracao.add(seqDiaAtracao);
         
         DiaAtracao result = null;
         try {

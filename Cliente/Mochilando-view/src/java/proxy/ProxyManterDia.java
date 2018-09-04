@@ -76,6 +76,7 @@ public class ProxyManterDia implements InterfaceManterDia{
         manterDia = new ArrayList();
         manterDia.add("Dia");
         manterDia.add("pesquisarPorId");
+        manterDia.add(seqDia);
         
         Dia result = null;
         try {

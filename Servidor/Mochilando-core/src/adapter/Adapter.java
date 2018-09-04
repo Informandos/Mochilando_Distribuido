@@ -23,8 +23,11 @@ import model.domain.AvaliacaoComentario;
 import model.domain.AvaliacaoDiario;
 import model.domain.Cidade;
 import model.domain.Comentario;
+import model.domain.Dia;
+import model.domain.DiaAtracao;
 import model.domain.Diario;
 import model.domain.Estado;
+import model.domain.Foto;
 import model.domain.Tag;
 import model.domain.TagDiario;
 import model.domain.TipoAtracao;
@@ -35,6 +38,11 @@ import model.service.implementacao.ManterAvaliacaoComentario;
 import model.service.implementacao.ManterAvaliacaoDiario;
 import model.service.implementacao.ManterCidade;
 import model.service.implementacao.ManterComentario;
+import model.service.implementacao.ManterDia;
+import model.service.implementacao.ManterDiaAtracao;
+import model.service.implementacao.ManterDiario;
+import model.service.implementacao.ManterEstado;
+import model.service.implementacao.ManterFoto;
 import model.service.implementacao.ManterTag;
 import model.service.implementacao.ManterTagDiario;
 import model.service.implementacao.ManterTipoAtracao;
@@ -45,17 +53,23 @@ import model.service.interfaces.InterfaceManterAvaliacaoComentario;
 import model.service.interfaces.InterfaceManterAvaliacaoDiario;
 import model.service.interfaces.InterfaceManterCidade;
 import model.service.interfaces.InterfaceManterComentario;
+import model.service.interfaces.InterfaceManterDia;
+import model.service.interfaces.InterfaceManterDiaAtracao;
+import model.service.interfaces.InterfaceManterDiario;
+import model.service.interfaces.InterfaceManterEstado;
+import model.service.interfaces.InterfaceManterFoto;
 import model.service.interfaces.InterfaceManterTag;
 import model.service.interfaces.InterfaceManterTagDiario;
 import model.service.interfaces.InterfaceManterTipoAtracao;
 import model.service.interfaces.InterfaceManterUsuario;
 import model.service.interfaces.InterfaceManterUsuarioTag;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
 /**
  *
- * @author Juliana Carvalho de Souza
+ * @author Juliana Carvalho de Souza, Carlos Henrique Brasileiro
  */
 
 /*
@@ -122,7 +136,7 @@ public class Adapter implements Runnable {
         //O construtor deixa o arraylist requisicao pronto para ser tratado
     }
 */
-    public void tratarRequisicao() throws ExcecaoPersistencia, ExcecaoNegocio, IOException {
+    public void tratarRequisicao() throws ExcecaoPersistencia, ExcecaoNegocio, IOException, ExcecaoConexaoCliente {
         String tipoObjeto = (String) requisicao.get(0);
         String operacao;
 
@@ -417,7 +431,8 @@ public class Adapter implements Runnable {
                     }
                 }
                 break;
-             case "AvaliacaoComentario":
+                
+            case "AvaliacaoComentario":
                 InterfaceManterAvaliacaoComentario manterAvaliacaoComentario = new ManterAvaliacaoComentario();
                 operacao = (String) requisicao.get(1);
                 
@@ -472,7 +487,8 @@ public class Adapter implements Runnable {
                     }
                 }
                 break;
-             case "AvaliacaoDiario":
+                
+            case "AvaliacaoDiario":
                 InterfaceManterAvaliacaoDiario manterAvaliacaoDiario = new ManterAvaliacaoDiario();
                 operacao = (String) requisicao.get(1);    
                     
@@ -525,12 +541,13 @@ public class Adapter implements Runnable {
                         resposta.add(result);
                     }
                 } 
-             break;
-                case "Cidade":
+                break;
+             
+            case "Cidade":
                 InterfaceManterCidade manterCidade = new ManterCidade();
                 operacao = (String) requisicao.get(1);
                 
-                  if (operacao.equals("cadastrar")) {
+                if (operacao.equals("cadastrar")) {
                     Cidade cid = (Cidade) requisicao.get(2);
                     Long cidade = manterCidade.cadastrar(cid);
                     if (resposta == null) {
@@ -554,24 +571,25 @@ public class Adapter implements Runnable {
                     if (resposta == null) {
                         resposta.add(result);
                     } 
-                }else if (operacao.equals("pesquisarPorCodEstado")) {
+                } else if (operacao.equals("pesquisarPorCodEstado")) {
                    Long codEstado = (Long) requisicao.get(2);
                    List<Cidade> result = manterCidade.pesquisarPorCodEstado(codEstado);
                     if (resposta == null) {
                         resposta.add(result);
                     } 
-                }else if (operacao.equals("pesquisarTodos")) {
+                } else if (operacao.equals("pesquisarTodos")) {
                    List<Cidade> result = manterCidade.pesquisarTodos();
                     if (resposta == null) {
                         resposta.add(result);
                     } 
                 }
-            break;
+                break;
+                
             case "Comentario": 
                 InterfaceManterComentario manterComentario = new ManterComentario();
                 operacao = (String) requisicao.get(1);
                 
-                 if (operacao.equals("cadastrar")) {
+                if (operacao.equals("cadastrar")) {
                     Comentario coment = (Comentario) requisicao.get(2);
                     Long comentario = manterComentario.cadastrar(coment);
                     if (resposta == null) {
@@ -589,25 +607,241 @@ public class Adapter implements Runnable {
                     if (resposta == null) {
                         resposta.add(sucesso);
                     } 
-                }else if (operacao.equals("pesquisarPorId")) {
+                } else if (operacao.equals("pesquisarPorId")) {
                    Long seqComentario = (Long) requisicao.get(2);
                    Comentario result = manterComentario.pesquisarPorId(seqComentario);
                     if (resposta == null) {
                         resposta.add(result);
                     } 
-                }else if (operacao.equals("pesquisarPorCodDiario")) {
+                } else if (operacao.equals("pesquisarPorCodDiario")) {
                    Long codDiario = (Long) requisicao.get(2);
                    List<Comentario> result = manterComentario.pesquisarPorCodDiario(codDiario);
                     if (resposta == null) {
                         resposta.add(result);
                     } 
-                }else if (operacao.equals("pesquisarTodos")) {
+                } else if (operacao.equals("pesquisarTodos")) {
                    List<Comentario> sucesso = manterComentario.pesquisarTodos();
                     if (resposta == null) {
                         resposta.add(sucesso);
                     } 
-                }   
-            //Outros cases aqui
+                }
+                break;
+                
+            case "Dia": 
+                InterfaceManterDia manterDia = new ManterDia();
+                operacao = (String) requisicao.get(1);
+                
+                if (operacao.equals("cadastrar")) {
+                    Dia dDia = (Dia) requisicao.get(2);
+                    Long dia = manterDia.cadastrar(dDia);
+                    if (resposta == null) {
+                        resposta.add(dia);
+                    }
+                } else if (operacao.equals("alterar")) {
+                   Dia dia = (Dia) requisicao.get(2);
+                   boolean sucesso = manterDia.alterar(dia);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                } else if (operacao.equals("excluir")) {
+                   Dia dia = (Dia) requisicao.get(2);
+                   boolean sucesso = manterDia.excluir(dia);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                } else if (operacao.equals("pesquisarPorId")) {
+                   Long seqDia = (Long) requisicao.get(2);
+                   Dia result = manterDia.pesquisarPorId(seqDia);
+                    if (resposta == null) {
+                        resposta.add(result);
+                    }
+                } else if (operacao.equals("pesquisarPorCodDiario")) {
+                   Long codDiario = (Long) requisicao.get(2);
+                   List<Dia> result = manterDia.pesquisarPorCodDiario(codDiario);
+                    if (resposta == null) {
+                        resposta.add(result);
+                    }
+                } else if (operacao.equals("pesquisarTodos")) {
+                   List<Dia> result = manterDia.pesquisarTodos();
+                    if (resposta == null) {
+                        resposta.add(result);
+                    }
+                }
+                break;
+                
+            case "DiaAtracao": 
+                InterfaceManterDiaAtracao manterDiaAtracao = new ManterDiaAtracao();
+                operacao = (String) requisicao.get(1);
+                
+                if (operacao.equals("cadastrar")) {
+                    DiaAtracao diaAtr = (DiaAtracao) requisicao.get(2);
+                    Long dia = manterDiaAtracao.cadastrar(diaAtr);
+                    if (resposta == null) {
+                        resposta.add(dia);
+                    }
+                } else if (operacao.equals("alterar")) {
+                   DiaAtracao diaAtr = (DiaAtracao) requisicao.get(2);
+                   boolean sucesso = manterDiaAtracao.alterar(diaAtr);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                } else if (operacao.equals("excluir")) {
+                   DiaAtracao diaAtr = (DiaAtracao) requisicao.get(2);
+                   boolean sucesso = manterDiaAtracao.excluir(diaAtr);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                } else if (operacao.equals("pesquisarPorId")) {
+                   Long seqDiaAtracao = (Long) requisicao.get(2);
+                   DiaAtracao result = manterDiaAtracao.pesquisarPorId(seqDiaAtracao);
+                    if (resposta == null) {
+                        resposta.add(result);
+                    }
+                } else if (operacao.equals("pesquisarPorSeqDia")) {
+                   Long seqDia = (Long) requisicao.get(2);
+                   List<DiaAtracao> result = manterDiaAtracao.pesquisarPorSeqDia(seqDia);
+                    if (resposta == null) {
+                        resposta.add(result);
+                    }
+                } else if (operacao.equals("pesquisarTodos")) {
+                   List<DiaAtracao> result = manterDiaAtracao.pesquisarTodos();
+                    if (resposta == null) {
+                        resposta.add(result);
+                    }
+                }
+                break;
+                
+            case "Diario": 
+                InterfaceManterDiario manterDiario = new ManterDiario();
+                operacao = (String) requisicao.get(1);
+                
+                if (operacao.equals("cadastrar")) {
+                    Diario dir = (Diario) requisicao.get(2);
+                    Long diario = manterDiario.cadastrar(dir);
+                    if (resposta == null) {
+                        resposta.add(diario);
+                    }
+                } else if (operacao.equals("alterar")) {
+                   Diario diario = (Diario) requisicao.get(2);
+                   boolean sucesso = manterDiario.alterar(diario);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                } else if (operacao.equals("excluir")) {
+                   Diario diario = (Diario) requisicao.get(2);
+                   boolean sucesso = manterDiario.excluir(diario);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                } else if (operacao.equals("pesquisarPorId")) {
+                   Long codDiario = (Long) requisicao.get(2);
+                   Diario result = manterDiario.pesquisarPorId(codDiario);
+                    if (resposta == null) {
+                        resposta.add(result);
+                    }
+                } else if (operacao.equals("pesquisarTodos")) {
+                   List<Diario> result = manterDiario.pesquisarTodos();
+                    if (resposta == null) {
+                        resposta.add(result);
+                    }
+                } else if (operacao.equals("pesquisarPorCodUsuario")) {
+                   Long codUsuario = (Long) requisicao.get(2);
+                   List<Diario> result = manterDiario.pesquisarPorCodUsuario(codUsuario);
+                    if (resposta == null) {
+                        resposta.add(result);
+                    }
+                } else if (operacao.equals("pesquisarPorCodCidade")) {
+                   Long codCidade = (Long) requisicao.get(2);
+                   List<Diario> result = manterDiario.pesquisarPorCodCidade(codCidade);
+                    if (resposta == null) {
+                        resposta.add(result);
+                    }
+                } else if (operacao.equals("pesquisarPorCodEstado")) {
+                   Long codEstado = (Long) requisicao.get(2);
+                   List<Diario> result = manterDiario.pesquisarPorCodEstado(codEstado);
+                    if (resposta == null) {
+                        resposta.add(result);
+                    }
+                }
+                break;
+                
+            case "Estado": 
+                InterfaceManterEstado manterEstado = new ManterEstado();
+                operacao = (String) requisicao.get(1);
+                
+                if (operacao.equals("cadastrar")) {
+                    Estado est = (Estado) requisicao.get(2);
+                    Long estado = manterEstado.cadastrar(est);
+                    if (resposta == null) {
+                        resposta.add(estado);
+                    }
+                } else if (operacao.equals("alterar")) {
+                   Estado est = (Estado) requisicao.get(2);
+                   boolean sucesso = manterEstado.alterar(est);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                } else if (operacao.equals("excluir")) {
+                   Estado est = (Estado) requisicao.get(2);
+                   boolean sucesso = manterEstado.excluir(est);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                } else if (operacao.equals("pesquisarPorId")) {
+                   Long codEstado = (Long) requisicao.get(2);
+                   Estado result = manterEstado.pesquisarPorId(codEstado);
+                    if (resposta == null) {
+                        resposta.add(result);
+                    }
+                } else if (operacao.equals("pesquisarPorSigla")) {
+                   String sigla = (String) requisicao.get(2);
+                   Estado result = manterEstado.pesquisarPorSigla(sigla);
+                    if (resposta == null) {
+                        resposta.add(result);
+                    }
+                } else if (operacao.equals("pesquisarTodos")) {
+                   List<Estado> result = manterEstado.pesquisarTodos();
+                    if (resposta == null) {
+                        resposta.add(result);
+                    }
+                }
+                break;
+                
+            case "Foto": 
+                InterfaceManterFoto manterFoto = new ManterFoto();
+                operacao = (String) requisicao.get(1);
+                
+                if (operacao.equals("cadastrar")) {
+                    Foto vFoto = (Foto) requisicao.get(2);
+                    Long foto = manterFoto.cadastrar(vFoto);
+                    if (resposta == null) {
+                        resposta.add(foto);
+                    }
+                } else if (operacao.equals("alterar")) {
+                   Foto foto = (Foto) requisicao.get(2);
+                   boolean sucesso = manterFoto.alterar(foto);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                } else if (operacao.equals("excluir")) {
+                   Foto foto = (Foto) requisicao.get(2);
+                   boolean sucesso = manterFoto.excluir(foto);
+                    if (resposta == null) {
+                        resposta.add(sucesso);
+                    } 
+                } else if (operacao.equals("pesquisarPorId")) {
+                   Long seqFoto = (Long) requisicao.get(2);
+                   Foto result = manterFoto.pesquisarPorId(seqFoto);
+                    if (resposta == null) {
+                        resposta.add(result);
+                    }
+                } else if (operacao.equals("pesquisarTodos")) {
+                   List<Foto> result = manterFoto.pesquisarTodos();
+                    if (resposta == null) {
+                        resposta.add(result);
+                    }
+                }
+                break;
         }
         //Apos escrever no arrayList, envia a resposta
         enviarResposta();
@@ -645,7 +879,7 @@ public class Adapter implements Runnable {
         try {
             tratarRequisicao();
 
-        } catch (ExcecaoPersistencia | ExcecaoNegocio | IOException ex) {
+        } catch (ExcecaoPersistencia | ExcecaoNegocio | IOException | ExcecaoConexaoCliente ex  ) {
             Logger.getLogger(Adapter.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

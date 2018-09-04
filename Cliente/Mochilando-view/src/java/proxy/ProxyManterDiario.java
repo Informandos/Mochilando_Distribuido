@@ -75,6 +75,7 @@ public class ProxyManterDiario implements InterfaceManterDiario{
         manterDiario = new ArrayList();
         manterDiario.add("Diario");
         manterDiario.add("pesquisarPorId");
+        manterDiario.add(codDiario);
         
         Diario result = null;
         try {
