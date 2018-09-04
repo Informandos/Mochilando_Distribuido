@@ -46,11 +46,9 @@ public class ProxyManterUsuarioTag implements InterfaceManterUsuarioTag{
         Long result = 0L;
         try {
             result = (Long) cliente.requisicao(manterUsuarioTag).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
-             Logger.getLogger(ProxyManterUsuarioTag.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(ProxyManterUsuarioTag.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return result;
     }
 
@@ -64,11 +62,9 @@ public class ProxyManterUsuarioTag implements InterfaceManterUsuarioTag{
         boolean result = false;
         try {
             result = (boolean) cliente.requisicao(manterUsuarioTag).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
-             Logger.getLogger(ProxyManterUsuarioTag.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(ProxyManterUsuarioTag.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return result;
     }
 
@@ -82,11 +78,9 @@ public class ProxyManterUsuarioTag implements InterfaceManterUsuarioTag{
         boolean result = false;
         try {
             result = (boolean) cliente.requisicao(manterUsuarioTag).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
-             Logger.getLogger(ProxyManterUsuarioTag.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(ProxyManterUsuarioTag.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return result;
     }
 
@@ -100,11 +94,9 @@ public class ProxyManterUsuarioTag implements InterfaceManterUsuarioTag{
         UsuarioTag result = null;
         try {
             result = (UsuarioTag) cliente.requisicao(manterUsuarioTag).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
-             Logger.getLogger(ProxyManterUsuarioTag.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(ProxyManterUsuarioTag.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return result;
     }
 
@@ -118,11 +110,9 @@ public class ProxyManterUsuarioTag implements InterfaceManterUsuarioTag{
         List<UsuarioTag> result = null;
         try {
             result = (List<UsuarioTag>) cliente.requisicao(manterUsuarioTag).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
-             Logger.getLogger(ProxyManterUsuarioTag.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(ProxyManterUsuarioTag.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return result;
     }
 
@@ -136,11 +126,9 @@ public class ProxyManterUsuarioTag implements InterfaceManterUsuarioTag{
         List<UsuarioTag> result = null;
         try {
             result = (List<UsuarioTag>) cliente.requisicao(manterUsuarioTag).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
-             Logger.getLogger(ProxyManterUsuarioTag.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(ProxyManterUsuarioTag.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return result;
     }
 
@@ -154,11 +142,9 @@ public class ProxyManterUsuarioTag implements InterfaceManterUsuarioTag{
         List<UsuarioTag> result = null;
         try {
             result = (List<UsuarioTag>) cliente.requisicao(manterUsuarioTag).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
-             Logger.getLogger(ProxyManterUsuarioTag.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(ProxyManterUsuarioTag.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return result;
     }
 

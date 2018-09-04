@@ -60,8 +60,8 @@ public class CadastrarUsuario extends HttpServlet implements Logica{
             usuario.setCidade(null);
             usuario.setImgPerfil(null);
             usuario.setCodUsuario(null);
-            InterfaceManterUsuario usu = new ProxyManterUsuario();
-            Long cadastrar = usu.cadastrar(usuario);
+            InterfaceManterUsuario usrProxy = new ProxyManterUsuario();
+            Long cadastrar = usrProxy.cadastrar(usuario);
         } catch (ExcecaoPersistencia | ExcecaoNegocio ex) {
             Logger.getLogger(CadastrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }

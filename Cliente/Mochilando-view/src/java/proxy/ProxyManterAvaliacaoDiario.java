@@ -46,9 +46,7 @@ public class ProxyManterAvaliacaoDiario implements InterfaceManterAvaliacaoDiari
         Long result = 0L;
         try {
             result = (Long) cliente.requisicao(manterAvaliacaoDiario).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
              Logger.getLogger(ProxyManterAvaliacaoDiario.class.getName()).log(Level.SEVERE, null, ex);
          }
         return result;
@@ -65,9 +63,7 @@ public class ProxyManterAvaliacaoDiario implements InterfaceManterAvaliacaoDiari
         boolean result = false;
         try {
             result = (boolean) cliente.requisicao(manterAvaliacaoDiario).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
              Logger.getLogger(ProxyManterAvaliacaoDiario.class.getName()).log(Level.SEVERE, null, ex);
          }
         return result;
@@ -84,9 +80,7 @@ public class ProxyManterAvaliacaoDiario implements InterfaceManterAvaliacaoDiari
         boolean result = false;
         try {
             result = (boolean) cliente.requisicao(manterAvaliacaoDiario).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
              Logger.getLogger(ProxyManterAvaliacaoDiario.class.getName()).log(Level.SEVERE, null, ex);
          }
         return result;
@@ -103,9 +97,7 @@ public class ProxyManterAvaliacaoDiario implements InterfaceManterAvaliacaoDiari
         AvaliacaoDiario result = null;
         try {
             result = (AvaliacaoDiario) cliente.requisicao(manterAvaliacaoDiario).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
              Logger.getLogger(ProxyManterAvaliacaoDiario.class.getName()).log(Level.SEVERE, null, ex);
          }
         return result;
@@ -122,9 +114,7 @@ public class ProxyManterAvaliacaoDiario implements InterfaceManterAvaliacaoDiari
         int result = 0;
         try {
             result = (int) cliente.requisicao(manterAvaliacaoDiario).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
              Logger.getLogger(ProxyManterAvaliacaoDiario.class.getName()).log(Level.SEVERE, null, ex);
          }
         return result;
@@ -141,9 +131,7 @@ public class ProxyManterAvaliacaoDiario implements InterfaceManterAvaliacaoDiari
         int result = 0;
         try {
             result = (int) cliente.requisicao(manterAvaliacaoDiario).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
              Logger.getLogger(ProxyManterAvaliacaoDiario.class.getName()).log(Level.SEVERE, null, ex);
          }
         return result;
@@ -160,9 +148,7 @@ public class ProxyManterAvaliacaoDiario implements InterfaceManterAvaliacaoDiari
         List<AvaliacaoDiario> result = null;
         try {
             result = (List<AvaliacaoDiario>) cliente.requisicao(manterAvaliacaoDiario).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
              Logger.getLogger(ProxyManterAvaliacaoDiario.class.getName()).log(Level.SEVERE, null, ex);
          }
         return result;
@@ -179,9 +165,7 @@ public class ProxyManterAvaliacaoDiario implements InterfaceManterAvaliacaoDiari
         List<AvaliacaoDiario> result = null;
         try {
             result = (List<AvaliacaoDiario>) cliente.requisicao(manterAvaliacaoDiario).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
              Logger.getLogger(ProxyManterAvaliacaoDiario.class.getName()).log(Level.SEVERE, null, ex);
          }
         return result;

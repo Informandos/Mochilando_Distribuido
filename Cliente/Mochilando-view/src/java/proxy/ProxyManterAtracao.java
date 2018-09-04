@@ -46,9 +46,7 @@ public class ProxyManterAtracao implements InterfaceManterAtracao {
         Long result = 0L;
         try {
             result = (Long) cliente.requisicao(manterAtracao).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
              Logger.getLogger(ProxyManterAtracao.class.getName()).log(Level.SEVERE, null, ex);
          }
         return result;
@@ -63,13 +61,11 @@ public class ProxyManterAtracao implements InterfaceManterAtracao {
         
         //Indice de onde vai estar o boolean
         boolean result = false;
-        try {
-            result = (boolean) cliente.requisicao(manterAtracao).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+         try {
+             result = (boolean) cliente.requisicao(manterAtracao).get(0);
+         } catch (IOException | ClassNotFoundException ex) {
              Logger.getLogger(ProxyManterAtracao.class.getName()).log(Level.SEVERE, null, ex);
-         }
+         }        
         return result;
     }
 
@@ -83,9 +79,7 @@ public class ProxyManterAtracao implements InterfaceManterAtracao {
         boolean result = false;
         try {
             result = (boolean) cliente.requisicao(manterAtracao).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
              Logger.getLogger(ProxyManterAtracao.class.getName()).log(Level.SEVERE, null, ex);
          }
         return result;
@@ -100,9 +94,7 @@ public class ProxyManterAtracao implements InterfaceManterAtracao {
         Atracao result = null;
         try {
             result = (Atracao) cliente.requisicao(manterAtracao).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
              Logger.getLogger(ProxyManterAtracao.class.getName()).log(Level.SEVERE, null, ex);
          }
         return result;
@@ -117,9 +109,7 @@ public class ProxyManterAtracao implements InterfaceManterAtracao {
          List<Atracao> result = null;
         try {
             result = (List<Atracao>) cliente.requisicao(manterAtracao).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
              Logger.getLogger(ProxyManterAtracao.class.getName()).log(Level.SEVERE, null, ex);
          }
         return result;
@@ -134,9 +124,7 @@ public class ProxyManterAtracao implements InterfaceManterAtracao {
          List<Atracao> result = null;
         try {
             result = (List<Atracao>) cliente.requisicao(manterAtracao).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
              Logger.getLogger(ProxyManterAtracao.class.getName()).log(Level.SEVERE, null, ex);
          }
         return result;
@@ -151,9 +139,7 @@ public class ProxyManterAtracao implements InterfaceManterAtracao {
          List<Atracao> result = null;
         try {
             result = (List<Atracao>) cliente.requisicao(manterAtracao).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
              Logger.getLogger(ProxyManterAtracao.class.getName()).log(Level.SEVERE, null, ex);
          }
         return result;
@@ -168,9 +154,7 @@ public class ProxyManterAtracao implements InterfaceManterAtracao {
          List<Atracao> result = null;
         try {
             result = (List<Atracao>) cliente.requisicao(manterAtracao).get(0);
-        } catch (IOException ex) {
-            Logger.getLogger(ProxyManterUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
              Logger.getLogger(ProxyManterAtracao.class.getName()).log(Level.SEVERE, null, ex);
          }
         return result; 
