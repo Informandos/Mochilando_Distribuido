@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import model.domain.Usuario;
 import model.service.interfaces.InterfaceManterUsuario;
 import proxy.ProxyManterUsuario;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
@@ -63,6 +64,8 @@ public class CadastrarUsuario extends HttpServlet implements Logica{
             InterfaceManterUsuario usrProxy = new ProxyManterUsuario();
             Long cadastrar = usrProxy.cadastrar(usuario);
         } catch (ExcecaoPersistencia | ExcecaoNegocio ex) {
+            Logger.getLogger(CadastrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ExcecaoConexaoCliente ex) {
             Logger.getLogger(CadastrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
        return "index.jsp";

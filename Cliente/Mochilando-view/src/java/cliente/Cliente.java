@@ -107,6 +107,9 @@ public class Cliente {
             //Pega todos os pacotes enviados e monta array list
             this.arrayListDestinadoProxy = desmontaPacotes.desmontaPacotes(pacotes);
         }
+        else{
+            
+        }
         return arrayListDestinadoProxy;
     }
 }
