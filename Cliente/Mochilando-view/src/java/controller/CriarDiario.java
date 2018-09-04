@@ -16,7 +16,9 @@ import model.service.interfaces.InterfaceManterEstado;
 import model.service.interfaces.InterfaceManterTag;
 import model.service.interfaces.InterfaceManterTipoAtracao;
 import model.service.interfaces.InterfaceManterUsuario;
+import proxy.ProxyManterEstado;
 import proxy.ProxyManterTag;
+import proxy.ProxyManterTipoAtracao;
 
 /**
  *
@@ -31,11 +33,11 @@ public class CriarDiario implements Logica {
         List<Tag> listaTag = manterTag.pesquisarTodos();
         request.setAttribute("listaTag", listaTag);
         //Pegando todos os estados
-        InterfaceManterEstado manterEstado = new ManterEstado();
+        InterfaceManterEstado manterEstado = new ProxyManterEstado();
         List<Estado> listaEstado = manterEstado.pesquisarTodos();
         request.setAttribute("listaEstado", listaEstado);
         
-        InterfaceManterTipoAtracao manterTipoAtraco = new ManterTipoAtracao();
+        InterfaceManterTipoAtracao manterTipoAtraco = new ProxyManterTipoAtracao();
 
         String jsp = "/criarDiario.jsp";
 

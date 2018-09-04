@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.conversao.Conversao;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.pacote.DesmontagemPacote;
 import util.pacote.MontagemPacote;
 
@@ -83,7 +84,7 @@ public class Cliente {
     para arraylist novamente, devolvendo resposta para o proxy
     
      */
-    public ArrayList requisicao(ArrayList arrayListVindo) throws IOException, ClassNotFoundException {
+    public ArrayList requisicao(ArrayList arrayListVindo) throws IOException, ClassNotFoundException, ExcecaoConexaoCliente {
         //Recebe arrayList do proxy
         this.arrayListVindoProxy = arrayListVindo;
 
@@ -108,7 +109,7 @@ public class Cliente {
             this.arrayListDestinadoProxy = desmontaPacotes.desmontaPacotes(pacotes);
         }
         else{
-            
+            throw new ExcecaoConexaoCliente("A conexao não foi autorizada");
         }
         return arrayListDestinadoProxy;
     }

@@ -25,6 +25,7 @@ import model.domain.Comentario;
 import model.domain.DiaAtracao;
 import model.domain.Foto;
 import model.service.interfaces.InterfaceManterDiaAtracao;
+import proxy.ProxyManterDiario;
 
 /**
  *
@@ -60,7 +61,7 @@ public class SalvarDiario implements Logica {
         diario.setDatFimViagem(dataFimFormatada);
         diario.setTxtDiario(txtDiario);
         
-        InterfaceManterDiario manterDiario = new ManterDiario();
+        InterfaceManterDiario manterDiario = new ProxyManterDiario();
         Long codDiario = manterDiario.cadastrar(diario);
         
         //Dia

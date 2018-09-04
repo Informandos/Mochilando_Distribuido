@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.domain.Usuario;
 import model.service.interfaces.InterfaceManterUsuario;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
@@ -37,7 +38,7 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
     }
     
     @Override
-    public Long cadastrar(Usuario usuario) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public Long cadastrar(Usuario usuario) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterUsuario = new ArrayList();
         manterUsuario.add("Usuario");
         manterUsuario.add("cadastrar");

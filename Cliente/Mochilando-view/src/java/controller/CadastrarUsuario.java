@@ -67,6 +67,7 @@ public class CadastrarUsuario extends HttpServlet implements Logica{
             Logger.getLogger(CadastrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }catch (ExcecaoConexaoCliente ex) {
             Logger.getLogger(CadastrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            return "falhaConexao.jsp";
         }
        return "index.jsp";
     }
