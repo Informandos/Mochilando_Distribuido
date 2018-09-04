@@ -7,7 +7,6 @@ package model.service.interfaces;
 
 import java.util.List;
 import model.domain.AvaliacaoComentario;
-import model.domain.AvaliacaoDiario;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
@@ -26,8 +25,4 @@ public interface InterfaceManterAvaliacaoComentario {
     public int pesquisarNumAvNegativas(Long seqComentario) throws ExcecaoPersistencia;
     public List <AvaliacaoComentario> pesquisarPorDiario(Long codDiario) throws ExcecaoPersistencia;
     public List <AvaliacaoComentario> pesquisarTodos(Long seqAvaliacao) throws ExcecaoPersistencia;
-
-    public boolean alterar(AvaliacaoDiario atr);
-        
-
 }

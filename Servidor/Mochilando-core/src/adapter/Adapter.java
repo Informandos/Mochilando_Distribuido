@@ -155,9 +155,9 @@ public class Adapter implements Runnable {
                     }
 
                 } else if (operacao.equals("pesquisarTodos")) {
-                    List<Usuario> sucesso = manterUsuario.pesquisarTodos();
+                    List<Usuario> result = manterUsuario.pesquisarTodos();
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
 
                 } else if (operacao.equals("pesquisarPorId")) {
@@ -170,15 +170,15 @@ public class Adapter implements Runnable {
                 } else if (operacao.equals("getUserLogin")) {
                     String email = (String) requisicao.get(2);
                     String senha = (String) requisicao.get(3);
-                    Usuario sucesso = manterUsuario.getUserLogin(email, senha);
+                    Usuario result = manterUsuario.getUserLogin(email, senha);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
                 } else if (operacao.equals("getUserEmail")) {
                     String email = (String) requisicao.get(2);
-                    Usuario sucesso = manterUsuario.getUserEmail(email);
+                    Usuario result = manterUsuario.getUserEmail(email);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
                 } 
                 break;
@@ -208,11 +208,10 @@ public class Adapter implements Runnable {
                         resposta.add(sucesso);
                     }
                 } else if (operacao.equals("pesquisarPorId")) {
-                    UsuarioTag usrTag = (UsuarioTag) requisicao.get(2);
-                    Long id = usrTag.getSeqUsuarioTag();
-                    UsuarioTag sucesso = manterUsuarioTag.pesquisarPorId(id);
+                    Long id = (Long) requisicao.get(2);
+                    UsuarioTag result = manterUsuarioTag.pesquisarPorId(id);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
                 } else if (operacao.equals("pesquisarTodos")) {
                     List<UsuarioTag> sucesso = manterUsuarioTag.pesquisarTodos();
@@ -220,18 +219,16 @@ public class Adapter implements Runnable {
                         resposta.add(sucesso);
                     }
                 } else if (operacao.equals("pesquisarPorCodUsuario")) {
-                    UsuarioTag usrTag = (UsuarioTag) requisicao.get(2);
-                    Long codUsuario = usrTag.getSeqUsuarioTag();//revisar tipo da variável 
-                    List<UsuarioTag> sucesso = manterUsuarioTag.pesquisarPorCodUsuario(codUsuario);
+                    Long codUsuario = (Long) requisicao.get(2); 
+                    List<UsuarioTag> result = manterUsuarioTag.pesquisarPorCodUsuario(codUsuario);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
                 } else if (operacao.equals("pesquisarPorCodTag")) {
-                    UsuarioTag usrTag = (UsuarioTag) requisicao.get(2);
-                    Long codTag = usrTag.getSeqUsuarioTag();//revisar tipo da variável 
-                    List<UsuarioTag> sucesso = manterUsuarioTag.pesquisarPorCodTag(codTag);
+                    Long codTag = (Long) requisicao.get(2); 
+                    List<UsuarioTag> result = manterUsuarioTag.pesquisarPorCodTag(codTag);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
                 }
                 
@@ -260,15 +257,13 @@ public class Adapter implements Runnable {
                         resposta.add(sucesso);
                     } 
                 } else if (operacao.equals("pesquisarPorId")) {
-                   TipoAtracao tipoAtr = (TipoAtracao) requisicao.get(2);
-                   Long id = tipoAtr.getCodTipoAtracao();
-                   TipoAtracao sucesso = manterTipoAtracao.pesquisarPorId(id);
+                   Long codTipoAtr = (Long) requisicao.get(2);
+                   TipoAtracao result = manterTipoAtracao.pesquisarPorId(codTipoAtr);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     } 
                 } else if (operacao.equals("pesquisarPorNome")) {
-                   TipoAtracao tipoAtr = (TipoAtracao) requisicao.get(2);
-                   String descTipoAtracao = tipoAtr.getDescTipoAtracao();
+                   String descTipoAtracao = (String) requisicao.get(2);
                    TipoAtracao sucesso = manterTipoAtracao.pesquisarPorNome(descTipoAtracao);
                     if (resposta == null) {
                         resposta.add(sucesso);
@@ -287,8 +282,8 @@ public class Adapter implements Runnable {
                 operacao = (String) requisicao.get(1); 
                 
                 if (operacao.equals("cadastrar")) {
-                    TagDiario tDiario = (TagDiario) requisicao.get(2);
-                    Long tagDiario = manterTagDiario.cadastrar(tDiario);
+                    TagDiario codTagDiario = (TagDiario) requisicao.get(2);
+                    Long tagDiario = manterTagDiario.cadastrar(codTagDiario);
                     if (resposta == null) {
                         resposta.add(tagDiario);
                     }
@@ -305,11 +300,10 @@ public class Adapter implements Runnable {
                         resposta.add(sucesso);
                     }
                 } else if (operacao.equals("pesquisarPorId")) {
-                    TagDiario tagDiario = (TagDiario) requisicao.get(2);
-                    Long seqTagDiario = tagDiario.getSeqTagDiario();
-                    TagDiario sucesso = manterTagDiario.pesquisarPorId(seqTagDiario);
+                    Long seqTagDiario = (Long) requisicao.get(2);
+                    TagDiario result = manterTagDiario.pesquisarPorId(seqTagDiario);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
                 } else if (operacao.equals("pesquisarTodos")) {
                     List<TagDiario> sucesso = manterTagDiario.pesquisarTodos();
@@ -318,17 +312,15 @@ public class Adapter implements Runnable {
                     }
                 } else if (operacao.equals("pesquisarPorCodDiario")) {
                     Long codDiario = (Long) requisicao.get(2);
-                    TagDiario;
-                    List<TagDiario> sucesso = manterTagDiario.pesquisarPorCodDiario(codDiario);
+                    List<TagDiario> result = manterTagDiario.pesquisarPorCodDiario(codDiario);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
                 } else if (operacao.equals("pesquisarPorCodTag")) {
-                    TagDiario tagDiario = (TagDiario) requisicao.get(2);
-                    Long codTag = tagDiario.getSeqTagDiario();//revisar tipo da variável 
-                    List<TagDiario> sucesso = manterTagDiario.pesquisarPorCodTag(codTag);
+                    Long codTag = (Long) requisicao.get(2);
+                    List<TagDiario> result = manterTagDiario.pesquisarPorCodTag(codTag);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
                 }
                 
@@ -357,18 +349,16 @@ public class Adapter implements Runnable {
                         resposta.add(sucesso);
                     }
                 } else if (operacao.equals("pesquisarPorId")) {
-                    Tag tag = (Tag) requisicao.get(2);
-                    Long codTag = tag.getCodTag();
-                    Tag sucesso = manterTag.pesquisarPorId(codTag);
+                    Long codTag = (Long) requisicao.get(2);
+                    Tag result = manterTag.pesquisarPorId(codTag);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
                 } else if (operacao.equals("pesquisarPorNome")) {
-                    Tag tag = (Tag) requisicao.get(2);
-                    String descTag = tag.getDescTag();
-                    Tag sucesso = manterTag.pesquisarPorNome(descTag);
+                    String descTag = (String) requisicao.get(2);
+                    Tag result = manterTag.pesquisarPorNome(descTag);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
                 }
 
@@ -386,118 +376,99 @@ public class Adapter implements Runnable {
                     }
                 } else if (operacao.equals("alterar")) {
                     Atracao atr = (Atracao) requisicao.get(2);
-                   boolean sucesso = manterAtracao.alterar(atr);
+                    boolean sucesso = manterAtracao.alterar(atr);
                     if (resposta == null) {
                         resposta.add(sucesso);
                     } 
                 } else if (operacao.equals("excluir")) {
                     Atracao atr = (Atracao) requisicao.get(2);
-                   boolean sucesso = manterAtracao.excluir(atr);
+                    boolean sucesso = manterAtracao.excluir(atr);
                     if (resposta == null) {
                         resposta.add(sucesso);
                     } 
-                }else if (operacao.equals("pesquisarPorId")) {
-                   Atracao atr = (Atracao) requisicao.get(2);
-                   Long id = atr.getSeqAtracao();
-                   Atracao sucesso = manterAtracao.pesquisarPorId(id);
+                } else if (operacao.equals("pesquisarPorId")) {
+                   Long id = (Long) requisicao.get(2);
+                   Atracao result = manterAtracao.pesquisarPorId(id);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     } 
-                }else if (operacao.equals("pesquisarPorCodCidade")) {
-                   Atracao atr = (Atracao) requisicao.get(2);
-                   Cidade cidade = atr.getCidade();
-                   Long id = cidade.getCodCidade();
-                   List<Atracao> sucesso = manterAtracao.pesquisarPorCodCidade(id);
+                } else if (operacao.equals("pesquisarPorCodCidade")) {
+                   Long codCidade = (Long) requisicao.get(2);
+                   List<Atracao> result = manterAtracao.pesquisarPorCodCidade(codCidade);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     } 
-                }else if (operacao.equals("pesquisarPorCodEstado")) {
-                   Atracao atr = (Atracao) requisicao.get(2);
-                   Cidade cidade = atr.getCidade();
-                   Estado estado = cidade.getEstado();
-                   Long id = estado.getCodEstado();
-                   List<Atracao> sucesso = manterAtracao.pesquisarPorCodEstado(id);
+                } else if (operacao.equals("pesquisarPorCodEstado")) {
+                   Long codEstado = (Long) requisicao.get(2);
+                   List<Atracao> result = manterAtracao.pesquisarPorCodEstado(codEstado);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     } 
-                }else if (operacao.equals("pesquisarPorCodTipoAtracao")) {
-                   Atracao atr = (Atracao) requisicao.get(2);
-                   TipoAtracao tatr = atr.getTipoAtracao();
-                   Long codTipoAtracao = tatr.getCodTipoAtracao();
-                   List<Atracao> sucesso = manterAtracao.pesquisarPorCodTipoAtracao(codTipoAtracao);
+                } else if (operacao.equals("pesquisarPorCodTipoAtracao")) {
+                   Long codTipoAtracao = (Long) requisicao.get(2);
+                   List<Atracao> result = manterAtracao.pesquisarPorCodTipoAtracao(codTipoAtracao);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
-                }else if (operacao.equals("pesquisarTodos")) {
-                   List<Atracao> sucesso = manterAtracao.pesquisarTodos();
+                } else if (operacao.equals("pesquisarTodos")) {
+                   List<Atracao> result = manterAtracao.pesquisarTodos();
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
                 }
                 break;
              case "AvaliacaoComentario":
                 InterfaceManterAvaliacaoComentario manterAvaliacaoComentario = new ManterAvaliacaoComentario();
-                operacao = (String) requisicao.get(1);    
+                operacao = (String) requisicao.get(1);
+                
                 if (operacao.equals("cadastrar")) {
-                    AvaliacaoComentario atr = (AvaliacaoComentario) requisicao.get(2);
-                    Long codAtr = manterAvaliacaoComentario.cadastrar(atr);
-                    //Enviando somente o valor de codUsuario; 
-                    //nao precisa de passar o nome do parametro pois o cliente ja sabe o que espera
+                  AvaliacaoComentario avlComentario = (AvaliacaoComentario) requisicao.get(2);
+                  Long codAtr = manterAvaliacaoComentario.cadastrar(avlComentario);
                     if (resposta == null) {
                         resposta.add(codAtr);
                     }
 
                 } else if (operacao.equals("alterar")) {
-                    AvaliacaoComentario atr = (AvaliacaoComentario) requisicao.get(2);
-                   boolean sucesso = manterAvaliacaoComentario.alterar(atr);
+                   AvaliacaoComentario avlComentario = (AvaliacaoComentario) requisicao.get(2);
+                   boolean sucesso = manterAvaliacaoComentario.alterar(avlComentario);
                     if (resposta == null) {
                         resposta.add(sucesso);
                     } 
                 } else if (operacao.equals("excluir")) {
-                    AvaliacaoComentario atr = (AvaliacaoComentario) requisicao.get(2);
-                   boolean sucesso = manterAvaliacaoComentario.excluir(atr);
+                   AvaliacaoComentario avlComentario = (AvaliacaoComentario) requisicao.get(2);
+                   boolean sucesso = manterAvaliacaoComentario.excluir(avlComentario);
                     if (resposta == null) {
                         resposta.add(sucesso);
                     } 
-                }else if (operacao.equals("pesquisarPorId")) {
-                   AvaliacaoComentario atr = (AvaliacaoComentario) requisicao.get(2);
-                   Long id = atr.getSeqAvaliacao();
-                   AvaliacaoComentario sucesso = manterAvaliacaoComentario.pesquisarPorId(id);
+                } else if (operacao.equals("pesquisarPorId")) {
+                   Long seqAvaliacao = (Long) requisicao.get(2);
+                   AvaliacaoComentario result = manterAvaliacaoComentario.pesquisarPorId(seqAvaliacao);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
-                }
-                    else if (operacao.equals("pesquisarNumAvPositivas")) {
-                   AvaliacaoComentario atr = (AvaliacaoComentario) requisicao.get(2);
-                   Comentario comentario = atr.getComentario();
-                   Long id = comentario.getSeqComentario();
-                   int sucesso = manterAvaliacaoComentario.pesquisarNumAvPositivas(id);
+                } else if (operacao.equals("pesquisarNumAvPositivas")) {
+                   Long seqComentario = (Long) requisicao.get(2);
+                   int result = manterAvaliacaoComentario.pesquisarNumAvPositivas(seqComentario);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
                 } else if (operacao.equals("pesquisarNumAvNegativas")) {
-                   AvaliacaoComentario atr = (AvaliacaoComentario) requisicao.get(2);
-                   Comentario comentario = atr.getComentario();
-                   Long id = comentario.getSeqComentario();
-                   int sucesso = manterAvaliacaoComentario.pesquisarNumAvNegativas(id);
+                   Long seqComentario = (Long) requisicao.get(2);
+                   int result = manterAvaliacaoComentario.pesquisarNumAvNegativas(seqComentario);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
-                }else if (operacao.equals("pesquisarPorDiario")) {
-                   AvaliacaoComentario atr = (AvaliacaoComentario) requisicao.get(2);
-                   Comentario comentario = atr.getComentario();
-                   Diario diario = comentario.getDiario();
-                   Long id = diario.getCodDiario();
-                   List<AvaliacaoComentario> sucesso = manterAvaliacaoComentario.pesquisarPorDiario(id);
+                } else if (operacao.equals("pesquisarPorDiario")) {
+                   Long codDiario = (Long) requisicao.get(2);
+                   List<AvaliacaoComentario> result = manterAvaliacaoComentario.pesquisarPorDiario(codDiario);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
-                }else if (operacao.equals("pesquisarTodos")) {
-                   AvaliacaoComentario atr = (AvaliacaoComentario) requisicao.get(2);
-                   Long id = atr.getSeqAvaliacao();
-                   List<AvaliacaoComentario> sucesso = manterAvaliacaoComentario.pesquisarTodos(id);
+                } else if (operacao.equals("pesquisarTodos")) {
+                   Long seqAvaliacao = (Long) requisicao.get(2);
+                   List<AvaliacaoComentario> result = manterAvaliacaoComentario.pesquisarTodos(seqAvaliacao);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
                 }
                 break;
@@ -506,146 +477,131 @@ public class Adapter implements Runnable {
                 operacao = (String) requisicao.get(1);    
                     
                 if (operacao.equals("cadastrar")) {
-                    AvaliacaoDiario atr = (AvaliacaoDiario) requisicao.get(2);
-                    Long codAtr = manterAvaliacaoDiario.cadastrar(atr);
-                    //Enviando somente o valor de codUsuario; 
-                    //nao precisa de passar o nome do parametro pois o cliente ja sabe o que espera
+                    AvaliacaoDiario avlDiario = (AvaliacaoDiario) requisicao.get(2);
+                    Long avaliacaoDiario = manterAvaliacaoDiario.cadastrar(avlDiario);
                     if (resposta == null) {
-                        resposta.add(codAtr);
+                        resposta.add(avaliacaoDiario);
                     }
 
                 } else if (operacao.equals("alterar")) {
-                    AvaliacaoDiario atr = (AvaliacaoDiario) requisicao.get(2);
-                   boolean sucesso = manterAvaliacaoDiario.alterar(atr);
+                    AvaliacaoDiario avlDiario = (AvaliacaoDiario) requisicao.get(2);
+                    boolean sucesso = manterAvaliacaoDiario.alterar(avlDiario);
                     if (resposta == null) {
                         resposta.add(sucesso);
                     } 
                 } else if (operacao.equals("excluir")) {
-                    AvaliacaoDiario atr = (AvaliacaoDiario) requisicao.get(2);
-                   boolean sucesso =  manterAvaliacaoDiario.excluir(atr);
+                    AvaliacaoDiario avlDiario = (AvaliacaoDiario) requisicao.get(2);
+                    boolean sucesso =  manterAvaliacaoDiario.excluir(avlDiario);
                     if (resposta == null) {
                         resposta.add(sucesso);
                     } 
-                }else if (operacao.equals("pesquisarPorId")) {
-                   AvaliacaoDiario atr = (AvaliacaoDiario) requisicao.get(2);
-                   Long id = atr.getSeqAvaliacao();
-                   AvaliacaoDiario sucesso =  manterAvaliacaoDiario.pesquisarPorId(id);
+                } else if (operacao.equals("pesquisarPorId")) {
+                   Long seqAvaliacao = (Long) requisicao.get(2);
+                   AvaliacaoDiario result =  manterAvaliacaoDiario.pesquisarPorId(seqAvaliacao);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
-                }
-                    else if (operacao.equals("pesquisarNumAvPositivas")) {
-                   AvaliacaoDiario atr = (AvaliacaoDiario) requisicao.get(2);
-                  
-                   Long id = atr.getSeqAvaliacao();
-                   int sucesso =  manterAvaliacaoDiario.pesquisarNumAvPositivas(id);
+                } else if (operacao.equals("pesquisarNumAvPositivas")) {
+                   Long codDiario = (Long) requisicao.get(2);
+                   int result =  manterAvaliacaoDiario.pesquisarNumAvPositivas(codDiario);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
                 } else if (operacao.equals("pesquisarNumAvNegativas")) {
-                   AvaliacaoDiario atr = (AvaliacaoDiario) requisicao.get(2);
-                    Long id = atr.getSeqAvaliacao();
-                   int sucesso =  manterAvaliacaoDiario.pesquisarNumAvNegativas(id);
+                   Long codDiario = (Long) requisicao.get(2);
+                   int result =  manterAvaliacaoDiario.pesquisarNumAvNegativas(codDiario);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
-                }else if (operacao.equals("pesquisarPorDiario")) {
-                   AvaliacaoDiario atr = (AvaliacaoDiario) requisicao.get(2);
-                   
-                   Long id = atr.getSeqAvaliacao();
-                   List<AvaliacaoDiario> sucesso =  manterAvaliacaoDiario.pesquisarPorDiario(id);
+                } else if (operacao.equals("pesquisarPorDiario")) {
+                   Long codDiario = (Long) requisicao.get(2);
+                   List<AvaliacaoDiario> result =  manterAvaliacaoDiario.pesquisarPorDiario(codDiario);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
-                }else if (operacao.equals("pesquisarTodos")) {
-                  
-                   List<AvaliacaoDiario> sucesso =  manterAvaliacaoDiario.pesquisarTodos();
+                } else if (operacao.equals("pesquisarTodos")) {                  
+                   List<AvaliacaoDiario> result =  manterAvaliacaoDiario.pesquisarTodos();
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     }
                 } 
              break;
                 case "Cidade":
                 InterfaceManterCidade manterCidade = new ManterCidade();
-                operacao = (String) requisicao.get(1);    
+                operacao = (String) requisicao.get(1);
+                
                   if (operacao.equals("cadastrar")) {
-                    Cidade atr = (Cidade) requisicao.get(2);
-                    Long codAtr = manterCidade.cadastrar(atr);
+                    Cidade cid = (Cidade) requisicao.get(2);
+                    Long cidade = manterCidade.cadastrar(cid);
                     if (resposta == null) {
-                        resposta.add(codAtr);
+                        resposta.add(cidade);
                     }
-
                 } else if (operacao.equals("alterar")) {
-                    Cidade atr = (Cidade) requisicao.get(2);
-                   boolean sucesso = manterCidade.alterar(atr);
+                   Cidade cid = (Cidade) requisicao.get(2);
+                   boolean sucesso = manterCidade.alterar(cid);
                     if (resposta == null) {
                         resposta.add(sucesso);
                     } 
                 } else if (operacao.equals("excluir")) {
-                    Cidade atr = (Cidade) requisicao.get(2);
-                   boolean sucesso = manterCidade.excluir(atr);
+                   Cidade cid = (Cidade) requisicao.get(2);
+                   boolean sucesso = manterCidade.excluir(cid);
                     if (resposta == null) {
                         resposta.add(sucesso);
                     } 
-                }else if (operacao.equals("pesquisarPorId")) {
-                    Cidade atr = (Cidade) requisicao.get(2);
-                   Long id = atr.getCodCidade();
-                   Cidade sucesso = manterCidade.pesquisarPorId(id);
+                } else if (operacao.equals("pesquisarPorId")) {
+                   Long codCidade = (Long) requisicao.get(2);
+                   Cidade result = manterCidade.pesquisarPorId(codCidade);
                     if (resposta == null) {
-                        resposta.add(sucesso);
-                    } 
-                }else if (operacao.equals("pesquisarPorCodEstado")) {
-                    Cidade atr = (Cidade) requisicao.get(2);
-                   Long id = atr.getCodCidade();
-                   Cidade sucesso = manterCidade.pesquisarPorId(id);
-                    if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     } 
                 }else if (operacao.equals("pesquisarPorCodEstado")) {
-                   List<Cidade> sucesso = manterCidade.pesquisarTodos();
+                   Long codEstado = (Long) requisicao.get(2);
+                   List<Cidade> result = manterCidade.pesquisarPorCodEstado(codEstado);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
+                    } 
+                }else if (operacao.equals("pesquisarTodos")) {
+                   List<Cidade> result = manterCidade.pesquisarTodos();
+                    if (resposta == null) {
+                        resposta.add(result);
                     } 
                 }
             break;
             case "Comentario": 
                 InterfaceManterComentario manterComentario = new ManterComentario();
                 operacao = (String) requisicao.get(1);
+                
                  if (operacao.equals("cadastrar")) {
-                    Comentario atr = (Comentario) requisicao.get(2);
-                    Long codAtr = manterComentario.cadastrar(atr);
+                    Comentario coment = (Comentario) requisicao.get(2);
+                    Long comentario = manterComentario.cadastrar(coment);
                     if (resposta == null) {
-                        resposta.add(codAtr);
+                        resposta.add(comentario);
                     }
-
                 } else if (operacao.equals("alterar")) {
-                    Comentario atr = (Comentario) requisicao.get(2);
-                   boolean sucesso = manterComentario.alterar(atr);
+                   Comentario coment = (Comentario) requisicao.get(2);
+                   boolean sucesso = manterComentario.alterar(coment);
                     if (resposta == null) {
                         resposta.add(sucesso);
                     } 
                 } else if (operacao.equals("excluir")) {
-                    Comentario atr = (Comentario) requisicao.get(2);
-                   boolean sucesso = manterComentario.excluir(atr);
+                   Comentario coment = (Comentario) requisicao.get(2);
+                   boolean sucesso = manterComentario.excluir(coment);
                     if (resposta == null) {
                         resposta.add(sucesso);
                     } 
                 }else if (operacao.equals("pesquisarPorId")) {
-                    Comentario atr = (Comentario) requisicao.get(2);
-                   Long id = atr.getSeqComentario();
-                   Comentario sucesso = manterComentario.pesquisarPorId(id);
+                   Long seqComentario = (Long) requisicao.get(2);
+                   Comentario result = manterComentario.pesquisarPorId(seqComentario);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     } 
                 }else if (operacao.equals("pesquisarPorCodDiario")) {
-                    Comentario atr = (Comentario) requisicao.get(2);
-                    Diario diario = atr.getDiario();
-                   Long id = diario.getCodDiario();
-                   List<Comentario> sucesso = manterComentario.pesquisarPorCodDiario(id);
+                   Long codDiario = (Long) requisicao.get(2);
+                   List<Comentario> result = manterComentario.pesquisarPorCodDiario(codDiario);
                     if (resposta == null) {
-                        resposta.add(sucesso);
+                        resposta.add(result);
                     } 
-                }else if (operacao.equals("pesquisarPorCodDiario")) {
+                }else if (operacao.equals("pesquisarTodos")) {
                    List<Comentario> sucesso = manterComentario.pesquisarTodos();
                     if (resposta == null) {
                         resposta.add(sucesso);

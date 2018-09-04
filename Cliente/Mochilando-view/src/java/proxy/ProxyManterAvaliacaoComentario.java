@@ -163,10 +163,5 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
          }
         return result; 
     }
-
-    @Override
-    public boolean alterar(AvaliacaoDiario atr) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }
