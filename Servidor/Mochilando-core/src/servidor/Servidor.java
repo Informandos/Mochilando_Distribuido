@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.conversao.Conversao;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 import util.pacote.DesmontagemPacote;
@@ -37,7 +38,7 @@ public class Servidor {
     private static final int TAMANHO_MAXIMO_DATAGRAMA_UDP = 1000;
    
 
-    public static void main(String args[]) throws IOException, ClassNotFoundException, ExcecaoPersistencia, ExcecaoNegocio {
+    public static void main(String args[]) throws IOException, ClassNotFoundException, ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
 
         servidorDatagramaSocket = new DatagramSocket(PORTASERVIDOR);
         //Servidor eternamente ligado (enquanto a main estiver rodando)
@@ -46,7 +47,7 @@ public class Servidor {
         }
     }
 
-    public static void requisicao() throws IOException, ClassNotFoundException, ExcecaoPersistencia {
+    public static void requisicao() throws IOException, ClassNotFoundException, ExcecaoPersistencia, ExcecaoConexaoCliente, ExcecaoNegocio {
 
         /*Preparando recebimento do pacote (datagrama)*/
         //Vetor de bytes a ser recebido do cliente
@@ -85,7 +86,7 @@ public class Servidor {
         Adapter adapter = new Adapter(arrayListDestinadoAdapter,  enderecoIPCliente, portaCliente);
         try {
             adapter.tratarRequisicao();
-        } catch (ExcecaoNegocio ex) {
+        } catch (ExcecaoNegocio | ExcecaoConexaoCliente ex) {
             Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
         }
         Thread adapterThread = new Thread(adapter);

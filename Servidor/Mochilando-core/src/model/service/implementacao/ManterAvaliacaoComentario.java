@@ -57,32 +57,38 @@ public class ManterAvaliacaoComentario implements InterfaceManterAvaliacaoComent
 
     @Override
     public boolean excluir(AvaliacaoComentario avaliacaoComentario) throws ExcecaoPersistencia, ExcecaoNegocio {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean result = aComntDAO.deletar(avaliacaoComentario);
+        return result;
     }
 
     @Override
     public AvaliacaoComentario pesquisarPorId(Long seqAvaliacao) throws ExcecaoPersistencia {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        AvaliacaoComentario result = aComntDAO.consultarPorId(seqAvaliacao);
+        return result;
     }
 
     @Override
     public int pesquisarNumAvPositivas(Long seqComentario) throws ExcecaoPersistencia {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int result = aComntDAO.consultarNumAvPositivas(seqComentario);
+        return result;
     }
 
     @Override
     public int pesquisarNumAvNegativas(Long seqComentario) throws ExcecaoPersistencia {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int result = aComntDAO.consultarNumAvNegativas(seqComentario);
+        return result;
     }
 
     @Override
     public List<AvaliacaoComentario> pesquisarPorDiario(Long codDiario) throws ExcecaoPersistencia {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<AvaliacaoComentario> result = aComntDAO.listarPorDiario(codDiario);
+        return result;
     }
 
     @Override
     public List<AvaliacaoComentario> pesquisarTodos(Long seqAvaliacao) throws ExcecaoPersistencia {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<AvaliacaoComentario> result = aComntDAO.listarTudo(seqAvaliacao);
+        return result;
     }
    
 }
