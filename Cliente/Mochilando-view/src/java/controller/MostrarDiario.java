@@ -8,7 +8,9 @@ package controller;
 import controller.interfacelogica.Logica;
 import javax.servlet.http.HttpServletRequest;
 import model.domain.Diario;
+import model.service.implementacao.ManterDiario;
 import model.service.interfaces.InterfaceManterDiario;
+import proxy.ProxyManterDiario;
 
 /**
  *
@@ -22,7 +24,7 @@ public class MostrarDiario implements Logica {
     public String execute(HttpServletRequest request) throws Exception {
         Long codDiarioSelecionado = null;
         codDiarioSelecionado = (Long) request.getAttribute("codDiarioSelecionado");
-        InterfaceManterDiario manterDiario = new ManterDiario();
+        InterfaceManterDiario manterDiario = new ProxyManterDiario();
         Diario diario = manterDiario.pesquisarPorId(codDiarioSelecionado);
         request.setAttribute("diarioSelecionado", diario);
         

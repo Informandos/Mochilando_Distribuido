@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.domain.Foto;
 import model.service.interfaces.InterfaceManterFoto;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
@@ -22,7 +23,7 @@ public class ProxyManterFoto implements InterfaceManterFoto{
     }
 
     @Override
-    public Long cadastrar(Foto foto) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public Long cadastrar(Foto foto) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterFoto = new ArrayList();
         manterFoto.add("Foto");
         manterFoto.add("cadastrar");
@@ -38,7 +39,7 @@ public class ProxyManterFoto implements InterfaceManterFoto{
     }
 
     @Override
-    public boolean alterar(Foto foto) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean alterar(Foto foto) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterFoto = new ArrayList();
         manterFoto.add("Foto");
         manterFoto.add("alterar");
@@ -54,7 +55,7 @@ public class ProxyManterFoto implements InterfaceManterFoto{
     }
 
     @Override
-    public boolean excluir(Foto foto) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean excluir(Foto foto) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterFoto = new ArrayList();
         manterFoto.add("Foto");
         manterFoto.add("excluir");
@@ -70,7 +71,7 @@ public class ProxyManterFoto implements InterfaceManterFoto{
     }
 
     @Override
-    public Foto pesquisarPorId(Long seqFoto) throws ExcecaoPersistencia {
+    public Foto pesquisarPorId(Long seqFoto) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterFoto = new ArrayList();
         manterFoto.add("Foto");
         manterFoto.add("pesquisarPorId");
@@ -86,7 +87,7 @@ public class ProxyManterFoto implements InterfaceManterFoto{
     }
 
     @Override
-    public List<Foto> pesquisarTodos() throws ExcecaoPersistencia {
+    public List<Foto> pesquisarTodos() throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterFoto = new ArrayList();
         manterFoto.add("Foto");
         manterFoto.add("pesquisarTodos");
@@ -101,7 +102,7 @@ public class ProxyManterFoto implements InterfaceManterFoto{
     }
 
     @Override
-    public List<Foto> pesquisarPorDia(Long seqDia) throws ExcecaoPersistencia {
+    public List<Foto> pesquisarPorDia(Long seqDia) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterFoto = new ArrayList();
         manterFoto.add("Foto");
         manterFoto.add("pesquisarTodos");

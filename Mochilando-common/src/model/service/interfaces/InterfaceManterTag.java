@@ -7,6 +7,7 @@ package model.service.interfaces;
 
 import java.util.List;
 import model.domain.Tag;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
@@ -15,10 +16,10 @@ import util.db.exception.ExcecaoPersistencia;
  * @author Juliana
  */
 public interface InterfaceManterTag {
-    public Long cadastrar(Tag tag) throws ExcecaoPersistencia, ExcecaoNegocio;
-    public boolean alterar(Tag tag) throws ExcecaoPersistencia, ExcecaoNegocio;
-    public boolean excluir(Tag tag) throws ExcecaoPersistencia, ExcecaoNegocio;
-    public Tag pesquisarPorId(Long codTag) throws ExcecaoPersistencia;
-    public Tag pesquisarPorNome(String descTag) throws ExcecaoPersistencia;
-    public List<Tag> pesquisarTodos() throws ExcecaoPersistencia;
+    public Long cadastrar(Tag tag) throws ExcecaoPersistencia, ExcecaoNegocio,ExcecaoConexaoCliente;
+    public boolean alterar(Tag tag) throws ExcecaoPersistencia, ExcecaoNegocio,ExcecaoConexaoCliente;
+    public boolean excluir(Tag tag) throws ExcecaoPersistencia, ExcecaoNegocio,ExcecaoConexaoCliente;
+    public Tag pesquisarPorId(Long codTag) throws ExcecaoPersistencia,ExcecaoConexaoCliente;
+    public Tag pesquisarPorNome(String descTag) throws ExcecaoPersistencia,ExcecaoConexaoCliente;
+    public List<Tag> pesquisarTodos() throws ExcecaoPersistencia,ExcecaoConexaoCliente;
 }

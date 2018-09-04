@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.domain.Diario;
 import model.service.interfaces.InterfaceManterDiario;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
@@ -22,7 +23,7 @@ public class ProxyManterDiario implements InterfaceManterDiario{
     }
 
     @Override
-    public Long cadastrar(Diario diario) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public Long cadastrar(Diario diario) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterDiario = new ArrayList();
         manterDiario.add("Diario");
         manterDiario.add("cadastrar");
@@ -38,7 +39,7 @@ public class ProxyManterDiario implements InterfaceManterDiario{
     }
 
     @Override
-    public boolean alterar(Diario diario) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean alterar(Diario diario) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterDiario = new ArrayList();
         manterDiario.add("Diario");
         manterDiario.add("alterar");
@@ -54,7 +55,7 @@ public class ProxyManterDiario implements InterfaceManterDiario{
     }
 
     @Override
-    public boolean excluir(Diario diario) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean excluir(Diario diario) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterDiario = new ArrayList();
         manterDiario.add("Diario");
         manterDiario.add("excluir");
@@ -70,7 +71,7 @@ public class ProxyManterDiario implements InterfaceManterDiario{
     }
 
     @Override
-    public Diario pesquisarPorId(Long codDiario) throws ExcecaoPersistencia {
+    public Diario pesquisarPorId(Long codDiario) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterDiario = new ArrayList();
         manterDiario.add("Diario");
         manterDiario.add("pesquisarPorId");
@@ -85,7 +86,7 @@ public class ProxyManterDiario implements InterfaceManterDiario{
     }
 
     @Override
-    public List<Diario> pesquisarTodos() throws ExcecaoPersistencia {
+    public List<Diario> pesquisarTodos() throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterDiario = new ArrayList();
         manterDiario.add("Diario");
         manterDiario.add("pesquisarTodos");
@@ -100,7 +101,7 @@ public class ProxyManterDiario implements InterfaceManterDiario{
     }
 
     @Override
-    public List<Diario> pesquisarPorCodUsuario(Long codUsuario) throws ExcecaoPersistencia {
+    public List<Diario> pesquisarPorCodUsuario(Long codUsuario) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterDiario = new ArrayList();
         manterDiario.add("Diario");
         manterDiario.add("pesquisarCodUsuario");
@@ -116,7 +117,7 @@ public class ProxyManterDiario implements InterfaceManterDiario{
     }
 
     @Override
-    public List<Diario> pesquisarPorCodCidade(Long codCidade) throws ExcecaoPersistencia {
+    public List<Diario> pesquisarPorCodCidade(Long codCidade) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterDiario = new ArrayList();
         manterDiario.add("Diario");
         manterDiario.add("pesquisarCodUsuario");
@@ -132,7 +133,7 @@ public class ProxyManterDiario implements InterfaceManterDiario{
     }
 
     @Override
-    public List<Diario> pesquisarPorCodEstado(Long codEstado) throws ExcecaoPersistencia {
+    public List<Diario> pesquisarPorCodEstado(Long codEstado) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterDiario = new ArrayList();
         manterDiario.add("Diario");
         manterDiario.add("pesquisarCodUsuario");

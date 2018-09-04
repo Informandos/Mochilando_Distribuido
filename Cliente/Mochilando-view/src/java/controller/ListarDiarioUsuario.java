@@ -11,6 +11,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import model.domain.Diario;
 import model.service.interfaces.InterfaceManterDiario;
+import proxy.ProxyManterDiario;
 
 /**
  *

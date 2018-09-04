@@ -9,6 +9,7 @@ package model.service.interfaces;
 import util.db.exception.ExcecaoPersistencia;
 import java.util.List;
 import model.domain.Atracao;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.db.exception.ExcecaoNegocio;
 
 /**
@@ -17,13 +18,13 @@ import util.db.exception.ExcecaoNegocio;
  */
 public interface InterfaceManterAtracao {
     
-    public Long cadastrar(Atracao atracao) throws ExcecaoPersistencia, ExcecaoNegocio;
-    public boolean alterar(Atracao atracao) throws ExcecaoPersistencia, ExcecaoNegocio;
-    public boolean excluir(Atracao atracao) throws ExcecaoPersistencia, ExcecaoNegocio;
-    public Atracao pesquisarPorId(Long id) throws ExcecaoPersistencia;
-    public List<Atracao> pesquisarPorCodCidade(Long codCidade) throws ExcecaoPersistencia;
-    public List<Atracao> pesquisarPorCodEstado(Long codEstado) throws ExcecaoPersistencia;
-    public List<Atracao> pesquisarPorCodTipoAtracao(Long codTipoAtracao) throws ExcecaoPersistencia;   
-    public List<Atracao> pesquisarTodos() throws ExcecaoPersistencia;
+    public Long cadastrar(Atracao atracao) throws ExcecaoPersistencia, ExcecaoNegocio,ExcecaoConexaoCliente;
+    public boolean alterar(Atracao atracao) throws ExcecaoPersistencia, ExcecaoNegocio,ExcecaoConexaoCliente;
+    public boolean excluir(Atracao atracao) throws ExcecaoPersistencia, ExcecaoNegocio,ExcecaoConexaoCliente;
+    public Atracao pesquisarPorId(Long id) throws ExcecaoPersistencia,ExcecaoConexaoCliente;
+    public List<Atracao> pesquisarPorCodCidade(Long codCidade) throws ExcecaoPersistencia,ExcecaoConexaoCliente;
+    public List<Atracao> pesquisarPorCodEstado(Long codEstado) throws ExcecaoPersistencia,ExcecaoConexaoCliente;
+    public List<Atracao> pesquisarPorCodTipoAtracao(Long codTipoAtracao) throws ExcecaoPersistencia,ExcecaoConexaoCliente;   
+    public List<Atracao> pesquisarTodos() throws ExcecaoPersistencia,ExcecaoConexaoCliente;
     
 }

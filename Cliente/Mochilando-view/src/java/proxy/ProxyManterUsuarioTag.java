@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.domain.UsuarioTag;
 import model.service.interfaces.InterfaceManterUsuarioTag;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
@@ -36,7 +37,7 @@ public class ProxyManterUsuarioTag implements InterfaceManterUsuarioTag{
     }
 
     @Override
-    public Long cadastrar(UsuarioTag usuarioTag) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public Long cadastrar(UsuarioTag usuarioTag) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterUsuarioTag = new ArrayList();
         manterUsuarioTag.add("UsuarioTag");
         manterUsuarioTag.add("cadastrar");
@@ -53,7 +54,7 @@ public class ProxyManterUsuarioTag implements InterfaceManterUsuarioTag{
     }
 
     @Override
-    public boolean alterar(UsuarioTag usuarioTag) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean alterar(UsuarioTag usuarioTag) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterUsuarioTag = new ArrayList();
         manterUsuarioTag.add("UsuarioTag");
         manterUsuarioTag.add("alterar");
@@ -69,7 +70,7 @@ public class ProxyManterUsuarioTag implements InterfaceManterUsuarioTag{
     }
 
     @Override
-    public boolean excluir(UsuarioTag usuarioTag) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean excluir(UsuarioTag usuarioTag) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterUsuarioTag = new ArrayList();
         manterUsuarioTag.add("UsuarioTag");
         manterUsuarioTag.add("excluir");
@@ -85,7 +86,7 @@ public class ProxyManterUsuarioTag implements InterfaceManterUsuarioTag{
     }
 
     @Override
-    public UsuarioTag pesquisarPorId(Long seqUsuarioTag) throws ExcecaoPersistencia {
+    public UsuarioTag pesquisarPorId(Long seqUsuarioTag) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterUsuarioTag = new ArrayList();
         manterUsuarioTag.add("UsuarioTag");
         manterUsuarioTag.add("pesquisarPorId");
@@ -101,7 +102,7 @@ public class ProxyManterUsuarioTag implements InterfaceManterUsuarioTag{
     }
 
     @Override
-    public List<UsuarioTag> pesquisarTodos() throws ExcecaoPersistencia {
+    public List<UsuarioTag> pesquisarTodos() throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterUsuarioTag = new ArrayList();
         manterUsuarioTag.add("UsuarioTag");
         manterUsuarioTag.add("pesquisarTodos");
@@ -117,7 +118,7 @@ public class ProxyManterUsuarioTag implements InterfaceManterUsuarioTag{
     }
 
     @Override
-    public List<UsuarioTag> pesquisarPorCodUsuario(Long codUsuario) throws ExcecaoPersistencia {
+    public List<UsuarioTag> pesquisarPorCodUsuario(Long codUsuario) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterUsuarioTag = new ArrayList();
         manterUsuarioTag.add("UsuarioTag");
         manterUsuarioTag.add("pesquisarPorCodUsuario");
@@ -133,7 +134,7 @@ public class ProxyManterUsuarioTag implements InterfaceManterUsuarioTag{
     }
 
     @Override
-    public List<UsuarioTag> pesquisarPorCodTag(Long codTag) throws ExcecaoPersistencia {
+    public List<UsuarioTag> pesquisarPorCodTag(Long codTag) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterUsuarioTag = new ArrayList();
         manterUsuarioTag.add("UsuarioTag");
         manterUsuarioTag.add("pesquisarPorCodTag");

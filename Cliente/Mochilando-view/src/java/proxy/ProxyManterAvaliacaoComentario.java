@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import model.domain.AvaliacaoComentario;
 import model.domain.AvaliacaoDiario;
 import model.service.interfaces.InterfaceManterAvaliacaoComentario;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
@@ -37,7 +38,7 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
     }
     
     @Override
-    public Long cadastrar(AvaliacaoComentario avaliacaoComentario) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public Long cadastrar(AvaliacaoComentario avaliacaoComentario) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterAvaliacaoComentario = new ArrayList();
         manterAvaliacaoComentario.add("AvaliacaoComentario");
         manterAvaliacaoComentario.add("cadastrar");
@@ -54,7 +55,7 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
     }
 
     @Override
-    public boolean alterar(AvaliacaoComentario avaliacaoComentario) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean alterar(AvaliacaoComentario avaliacaoComentario) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterAvaliacaoComentario = new ArrayList();
         manterAvaliacaoComentario.add("AvaliacaoComentario");
         manterAvaliacaoComentario.add("alterar");
@@ -71,7 +72,7 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
     }
 
     @Override
-    public boolean excluir(AvaliacaoComentario avaliacaoComentario) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean excluir(AvaliacaoComentario avaliacaoComentario) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterAvaliacaoComentario = new ArrayList();
         manterAvaliacaoComentario.add("AvaliacaoComentario");
         manterAvaliacaoComentario.add("excluir");
@@ -89,7 +90,7 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
     }
 
     @Override
-    public AvaliacaoComentario pesquisarPorId(Long seqAvaliacao) throws ExcecaoPersistencia {
+    public AvaliacaoComentario pesquisarPorId(Long seqAvaliacao) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterAvaliacaoComentario = new ArrayList();
         manterAvaliacaoComentario.add("AvaliacaoComentario");
         manterAvaliacaoComentario.add("pesquisarPorId");
@@ -105,7 +106,7 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
     }
 
     @Override
-    public int pesquisarNumAvPositivas(Long seqComentario) throws ExcecaoPersistencia {
+    public int pesquisarNumAvPositivas(Long seqComentario) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterAvaliacaoComentario = new ArrayList();
         manterAvaliacaoComentario.add("AvaliacaoComentario");
         manterAvaliacaoComentario.add("pesquisarNumAvPositivas");
@@ -120,7 +121,7 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
     }
 
     @Override
-    public int pesquisarNumAvNegativas(Long seqComentario) throws ExcecaoPersistencia {
+    public int pesquisarNumAvNegativas(Long seqComentario) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
          manterAvaliacaoComentario = new ArrayList();
         manterAvaliacaoComentario.add("AvaliacaoComentario");
         manterAvaliacaoComentario.add("pesquisarNumAvNegativas");
@@ -135,7 +136,7 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
     }
 
     @Override
-    public List<AvaliacaoComentario> pesquisarPorDiario(Long codDiario) throws ExcecaoPersistencia {
+    public List<AvaliacaoComentario> pesquisarPorDiario(Long codDiario) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterAvaliacaoComentario = new ArrayList();
         manterAvaliacaoComentario.add("AvaliacaoComentario");
         manterAvaliacaoComentario.add("pesquisarPorDiario");
@@ -150,7 +151,7 @@ public class ProxyManterAvaliacaoComentario implements InterfaceManterAvaliacaoC
     }
 
     @Override
-    public List<AvaliacaoComentario> pesquisarTodos(Long seqAvaliacao) throws ExcecaoPersistencia {
+    public List<AvaliacaoComentario> pesquisarTodos(Long seqAvaliacao) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
          manterAvaliacaoComentario = new ArrayList();
         manterAvaliacaoComentario.add("AvaliacaoComentario");
         manterAvaliacaoComentario.add("pesquisarTodos");

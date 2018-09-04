@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.domain.DiaAtracao;
 import model.service.interfaces.InterfaceManterDiaAtracao;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
@@ -22,7 +23,7 @@ public class ProxyManterDiaAtracao implements InterfaceManterDiaAtracao {
     }
 
     @Override
-    public Long cadastrar(DiaAtracao diaAtracao) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public Long cadastrar(DiaAtracao diaAtracao) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente  {
         manterDiaAtracao = new ArrayList();
         manterDiaAtracao.add("DiaAtracao");
         manterDiaAtracao.add("cadastrar");
@@ -38,7 +39,7 @@ public class ProxyManterDiaAtracao implements InterfaceManterDiaAtracao {
     }
 
     @Override
-    public boolean alterar(DiaAtracao diaAtracao) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean alterar(DiaAtracao diaAtracao) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterDiaAtracao = new ArrayList();
         manterDiaAtracao.add("DiaAtracao");
         manterDiaAtracao.add("alterar");
@@ -54,7 +55,7 @@ public class ProxyManterDiaAtracao implements InterfaceManterDiaAtracao {
     }
 
     @Override
-    public boolean excluir(DiaAtracao diaAtracao) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean excluir(DiaAtracao diaAtracao) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterDiaAtracao = new ArrayList();
         manterDiaAtracao.add("DiaAtracao");
         manterDiaAtracao.add("excluir");
@@ -70,7 +71,7 @@ public class ProxyManterDiaAtracao implements InterfaceManterDiaAtracao {
     }
 
     @Override
-    public DiaAtracao pesquisarPorId(Long seqDiaAtracao) throws ExcecaoPersistencia {
+    public DiaAtracao pesquisarPorId(Long seqDiaAtracao) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterDiaAtracao = new ArrayList();
         manterDiaAtracao.add("DiaAtracao");
         manterDiaAtracao.add("pesquisarPorId");
@@ -85,7 +86,7 @@ public class ProxyManterDiaAtracao implements InterfaceManterDiaAtracao {
     }
 
     @Override
-    public List<DiaAtracao> pesquisarPorSeqDia(Long seqDia) throws ExcecaoPersistencia {
+    public List<DiaAtracao> pesquisarPorSeqDia(Long seqDia) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterDiaAtracao = new ArrayList();
         manterDiaAtracao.add("DiaAtracao");
         manterDiaAtracao.add("pesquisarSeqDia");
@@ -101,7 +102,7 @@ public class ProxyManterDiaAtracao implements InterfaceManterDiaAtracao {
     }
 
     @Override
-    public List<DiaAtracao> pesquisarTodos() throws ExcecaoPersistencia {
+    public List<DiaAtracao> pesquisarTodos() throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterDiaAtracao = new ArrayList();
         manterDiaAtracao.add("DiaAtracao");
         manterDiaAtracao.add("pesquisarTodos");

@@ -25,6 +25,7 @@ import model.domain.Comentario;
 import model.domain.DiaAtracao;
 import model.domain.Foto;
 import model.service.interfaces.InterfaceManterDiaAtracao;
+import proxy.ProxyManterDiaAtracao;
 import proxy.ProxyManterDiario;
 
 /**
@@ -87,7 +88,7 @@ public class SalvarDiario implements Logica {
                 DiaAtracao diaAtracao = new DiaAtracao();
                 diaAtracao.setAtracao(atracao);
                 diaAtracao.setDia(dia);
-                InterfaceManterDiaAtracao manterDiaAtracao = new ManterDiaAtracao();
+                InterfaceManterDiaAtracao manterDiaAtracao = new ProxyManterDiaAtracao();
                 manterDiaAtracao.cadastrar(diaAtracao);
             }
             

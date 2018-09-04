@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.domain.Dia;
 import model.service.interfaces.InterfaceManterDia;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
@@ -23,7 +24,7 @@ public class ProxyManterDia implements InterfaceManterDia{
     }
     
     @Override
-    public Long cadastrar(Dia dia) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public Long cadastrar(Dia dia) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterDia = new ArrayList();
         manterDia.add("Dia");
         manterDia.add("cadastrar");
@@ -39,7 +40,7 @@ public class ProxyManterDia implements InterfaceManterDia{
     }
 
     @Override
-    public boolean alterar(Dia dia) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean alterar(Dia dia) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterDia = new ArrayList();
         manterDia.add("Dia");
         manterDia.add("alterar");
@@ -55,7 +56,7 @@ public class ProxyManterDia implements InterfaceManterDia{
     }
 
     @Override
-    public boolean excluir(Dia dia) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean excluir(Dia dia) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterDia = new ArrayList();
         manterDia.add("Dia");
         manterDia.add("excluir");
@@ -71,7 +72,7 @@ public class ProxyManterDia implements InterfaceManterDia{
     }
 
     @Override
-    public Dia pesquisarPorId(Long seqDia) throws ExcecaoPersistencia {
+    public Dia pesquisarPorId(Long seqDia) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterDia = new ArrayList();
         manterDia.add("Dia");
         manterDia.add("pesquisarPorId");
@@ -86,7 +87,7 @@ public class ProxyManterDia implements InterfaceManterDia{
     }
 
     @Override
-    public List<Dia> pesquisarPorCodDiario(Long codDiario) throws ExcecaoPersistencia {
+    public List<Dia> pesquisarPorCodDiario(Long codDiario) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterDia = new ArrayList();
         manterDia.add("Dia");
         manterDia.add("pesquisarCodDiario");
@@ -102,7 +103,7 @@ public class ProxyManterDia implements InterfaceManterDia{
     }
 
     @Override
-    public List<Dia> pesquisarTodos() throws ExcecaoPersistencia {
+    public List<Dia> pesquisarTodos() throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterDia = new ArrayList();
         manterDia.add("Dia");
         manterDia.add("pesquisarTodos");

@@ -6,7 +6,10 @@
 package controller;
 
 import controller.interfacelogica.Logica;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import model.domain.Diario;
+import util.pesquisas.AtualizacaoDiarios;
 
 /**
  *

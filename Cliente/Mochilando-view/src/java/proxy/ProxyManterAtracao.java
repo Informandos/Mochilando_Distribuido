@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.domain.Atracao;
 import model.service.interfaces.InterfaceManterAtracao;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
@@ -36,7 +37,7 @@ public class ProxyManterAtracao implements InterfaceManterAtracao {
     }
 
     @Override
-    public Long cadastrar(Atracao atracao) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public Long cadastrar(Atracao atracao) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
        manterAtracao = new ArrayList();
         manterAtracao.add("Atracao");
         manterAtracao.add("cadastrar");
@@ -53,7 +54,7 @@ public class ProxyManterAtracao implements InterfaceManterAtracao {
     }
 
     @Override
-    public boolean alterar(Atracao atracao) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean alterar(Atracao atracao) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
          manterAtracao = new ArrayList();
         manterAtracao.add("Atracao");
         manterAtracao.add("alterar");
@@ -70,7 +71,7 @@ public class ProxyManterAtracao implements InterfaceManterAtracao {
     }
 
     @Override
-    public boolean excluir(Atracao atracao) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean excluir(Atracao atracao) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
          manterAtracao = new ArrayList();
         manterAtracao.add("Atracao");
         manterAtracao.add("excluir");
@@ -86,7 +87,7 @@ public class ProxyManterAtracao implements InterfaceManterAtracao {
     }
 
     @Override
-    public Atracao pesquisarPorId(Long id) throws ExcecaoPersistencia {
+    public Atracao pesquisarPorId(Long id) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterAtracao = new ArrayList();
         manterAtracao.add("Atracao");
         manterAtracao.add("pesquisarPorId");
@@ -101,7 +102,7 @@ public class ProxyManterAtracao implements InterfaceManterAtracao {
     }
 
     @Override
-    public List<Atracao> pesquisarPorCodCidade(Long codCidade) throws ExcecaoPersistencia {
+    public List<Atracao> pesquisarPorCodCidade(Long codCidade) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterAtracao = new ArrayList();
         manterAtracao.add("Atracao");
         manterAtracao.add("pesquisarPorCodCidade");
@@ -116,7 +117,7 @@ public class ProxyManterAtracao implements InterfaceManterAtracao {
     }
 
     @Override
-    public List<Atracao> pesquisarPorCodEstado(Long codEstado) throws ExcecaoPersistencia {
+    public List<Atracao> pesquisarPorCodEstado(Long codEstado) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterAtracao = new ArrayList();
         manterAtracao.add("Atracao");
         manterAtracao.add("pesquisarPorCodEstado");
@@ -131,7 +132,7 @@ public class ProxyManterAtracao implements InterfaceManterAtracao {
     }
 
     @Override
-    public List<Atracao> pesquisarPorCodTipoAtracao(Long codTipoAtracao) throws ExcecaoPersistencia {
+    public List<Atracao> pesquisarPorCodTipoAtracao(Long codTipoAtracao) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterAtracao = new ArrayList();
         manterAtracao.add("Atracao");
         manterAtracao.add("pesquisarPorCodTipoAtracao");
@@ -146,7 +147,7 @@ public class ProxyManterAtracao implements InterfaceManterAtracao {
     }
 
     @Override
-    public List<Atracao> pesquisarTodos() throws ExcecaoPersistencia {
+    public List<Atracao> pesquisarTodos() throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterAtracao = new ArrayList();
         manterAtracao.add("Atracao");
         manterAtracao.add("pesquisarPorCodTipoAtracao");

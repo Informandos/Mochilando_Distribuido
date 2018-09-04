@@ -17,6 +17,7 @@ import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import util.db.exception.ExcecaoConexaoCliente;
 
 /**
  *
@@ -37,7 +38,7 @@ public class ProxyManterTagDiario implements InterfaceManterTagDiario {
     }
     
     @Override
-    public Long cadastrar(TagDiario tagDiario) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public Long cadastrar(TagDiario tagDiario) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterTagDiario = new ArrayList();
         manterTagDiario.add("TagDiario");
         manterTagDiario.add("cadastrar");
@@ -54,7 +55,7 @@ public class ProxyManterTagDiario implements InterfaceManterTagDiario {
     }
 
     @Override
-    public boolean alterar(TagDiario tagDiario) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean alterar(TagDiario tagDiario) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterTagDiario = new ArrayList();
         manterTagDiario.add("TagDiario");
         manterTagDiario.add("alterar");
@@ -70,7 +71,7 @@ public class ProxyManterTagDiario implements InterfaceManterTagDiario {
     }
 
     @Override
-    public boolean excluir(TagDiario tagDiario) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean excluir(TagDiario tagDiario) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterTagDiario = new ArrayList();
         manterTagDiario.add("TagDiario");
         manterTagDiario.add("excluir");
@@ -86,7 +87,7 @@ public class ProxyManterTagDiario implements InterfaceManterTagDiario {
     }
 
     @Override
-    public TagDiario pesquisarPorId(Long seqTagDiario) throws ExcecaoPersistencia {
+    public TagDiario pesquisarPorId(Long seqTagDiario) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterTagDiario = new ArrayList();
         manterTagDiario.add("TagDiario");
         manterTagDiario.add("pesquisarPorId");
@@ -102,7 +103,7 @@ public class ProxyManterTagDiario implements InterfaceManterTagDiario {
     }
 
     @Override
-    public List<TagDiario> pesquisarTodos() throws ExcecaoPersistencia {
+    public List<TagDiario> pesquisarTodos() throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterTagDiario = new ArrayList();
         manterTagDiario.add("TagDiario");
         manterTagDiario.add("pesquisarTodos");
@@ -117,7 +118,7 @@ public class ProxyManterTagDiario implements InterfaceManterTagDiario {
     }
 
     @Override
-    public List<TagDiario> pesquisarPorCodDiario(Long codDiario) throws ExcecaoPersistencia {
+    public List<TagDiario> pesquisarPorCodDiario(Long codDiario) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterTagDiario = new ArrayList();
         manterTagDiario.add("TagDiario");
         manterTagDiario.add("pesquisarPorCodDiario");
@@ -133,7 +134,7 @@ public class ProxyManterTagDiario implements InterfaceManterTagDiario {
     }
 
     @Override
-    public List<TagDiario> pesquisarPorCodTag(Long codTag) throws ExcecaoPersistencia {
+    public List<TagDiario> pesquisarPorCodTag(Long codTag) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterTagDiario = new ArrayList();
         manterTagDiario.add("TagDiario");
         manterTagDiario.add("pesquisarPorCodTag");

@@ -7,6 +7,7 @@ package model.service.interfaces;
 
 import java.util.List;
 import model.domain.Estado;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
@@ -15,10 +16,10 @@ import util.db.exception.ExcecaoPersistencia;
  * @author Juliana
  */
 public interface InterfaceManterEstado {
-    public Long cadastrar(Estado estado) throws ExcecaoPersistencia, ExcecaoNegocio;
-    public boolean alterar(Estado estado) throws ExcecaoPersistencia, ExcecaoNegocio;
-    public boolean excluir(Estado estado) throws ExcecaoPersistencia, ExcecaoNegocio;
-    public Estado pesquisarPorId(Long codEstado) throws ExcecaoPersistencia;
-    public Estado pesquisarPorSigla(String sigla) throws ExcecaoPersistencia;
-    public List<Estado> pesquisarTodos() throws ExcecaoPersistencia;
+    public Long cadastrar(Estado estado) throws ExcecaoPersistencia, ExcecaoNegocio,ExcecaoConexaoCliente;
+    public boolean alterar(Estado estado) throws ExcecaoPersistencia, ExcecaoNegocio,ExcecaoConexaoCliente;
+    public boolean excluir(Estado estado) throws ExcecaoPersistencia, ExcecaoNegocio,ExcecaoConexaoCliente;
+    public Estado pesquisarPorId(Long codEstado) throws ExcecaoPersistencia,ExcecaoConexaoCliente;
+    public Estado pesquisarPorSigla(String sigla) throws ExcecaoPersistencia,ExcecaoConexaoCliente;
+    public List<Estado> pesquisarTodos() throws ExcecaoPersistencia,ExcecaoConexaoCliente;
 }

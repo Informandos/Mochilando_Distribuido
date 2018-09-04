@@ -55,7 +55,7 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
     }
 
     @Override
-    public boolean alterar(Usuario usuario) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean alterar(Usuario usuario) throws ExcecaoPersistencia, ExcecaoNegocio,ExcecaoConexaoCliente {
         manterUsuario = new ArrayList();
         manterUsuario.add("Usuario");
         manterUsuario.add("alterar");
@@ -71,7 +71,7 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
     }
 
     @Override
-    public boolean excluir(Usuario usuario) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean excluir(Usuario usuario) throws ExcecaoPersistencia, ExcecaoNegocio,ExcecaoConexaoCliente {
         manterUsuario = new ArrayList();
         manterUsuario.add("Usuario");
         manterUsuario.add("excluir");
@@ -87,7 +87,7 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
     }
 
     @Override
-    public List<Usuario> pesquisarTodos() throws ExcecaoPersistencia {
+    public List<Usuario> pesquisarTodos() throws ExcecaoPersistencia,ExcecaoConexaoCliente {
         manterUsuario = new ArrayList();
         manterUsuario.add("Usuario");
         manterUsuario.add("pesquisarTodos");
@@ -102,7 +102,7 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
     }
 
     @Override
-    public Usuario pesquisarPorId(Long id) throws ExcecaoPersistencia {
+    public Usuario pesquisarPorId(Long id) throws ExcecaoPersistencia,ExcecaoConexaoCliente {
         manterUsuario = new ArrayList();
         manterUsuario.add("Usuario");
         manterUsuario.add("pesquisarPorId");
@@ -118,7 +118,7 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
     }
 
     @Override
-    public Usuario getUserLogin(String email, String senha) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public Usuario getUserLogin(String email, String senha) throws ExcecaoPersistencia, ExcecaoNegocio,ExcecaoConexaoCliente {
         manterUsuario = new ArrayList();
         manterUsuario.add("Usuario");
         manterUsuario.add("getUserLogin");
@@ -135,7 +135,7 @@ public class ProxyManterUsuario implements InterfaceManterUsuario {
     }
 
     @Override
-    public Usuario getUserEmail(String email) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public Usuario getUserEmail(String email) throws ExcecaoPersistencia, ExcecaoNegocio,ExcecaoConexaoCliente {
         manterUsuario = new ArrayList();
         manterUsuario.add("Usuario");
         manterUsuario.add("getUserEmail");

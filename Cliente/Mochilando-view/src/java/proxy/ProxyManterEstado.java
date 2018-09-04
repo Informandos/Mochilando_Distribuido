@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.domain.Estado;
 import model.service.interfaces.InterfaceManterEstado;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
@@ -22,7 +23,7 @@ public class ProxyManterEstado implements InterfaceManterEstado{
    }
 
     @Override
-    public Long cadastrar(Estado estado) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public Long cadastrar(Estado estado) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterEstado = new ArrayList();
         manterEstado.add("Estado");
         manterEstado.add("cadastrar");
@@ -38,7 +39,7 @@ public class ProxyManterEstado implements InterfaceManterEstado{
     }
 
     @Override
-    public boolean alterar(Estado estado) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean alterar(Estado estado) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterEstado = new ArrayList();
         manterEstado.add("Estado");
         manterEstado.add("alterar");
@@ -54,7 +55,7 @@ public class ProxyManterEstado implements InterfaceManterEstado{
     }
 
     @Override
-    public boolean excluir(Estado estado) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean excluir(Estado estado) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterEstado = new ArrayList();
         manterEstado.add("Estado");
         manterEstado.add("excluir");
@@ -70,7 +71,7 @@ public class ProxyManterEstado implements InterfaceManterEstado{
     }
 
     @Override
-    public Estado pesquisarPorId(Long codEstado) throws ExcecaoPersistencia {
+    public Estado pesquisarPorId(Long codEstado) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterEstado = new ArrayList();
         manterEstado.add("Estado");
         manterEstado.add("pesquisarPorId");
@@ -86,7 +87,7 @@ public class ProxyManterEstado implements InterfaceManterEstado{
     }
 
     @Override
-    public Estado pesquisarPorSigla(String sigla) throws ExcecaoPersistencia {
+    public Estado pesquisarPorSigla(String sigla) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterEstado = new ArrayList();
         manterEstado.add("Estado");
         manterEstado.add("pesquisarPorSigla");
@@ -102,7 +103,7 @@ public class ProxyManterEstado implements InterfaceManterEstado{
     }
 
     @Override
-    public List<Estado> pesquisarTodos() throws ExcecaoPersistencia {
+    public List<Estado> pesquisarTodos() throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterEstado = new ArrayList();
         manterEstado.add("Estado");
         manterEstado.add("pesquisarTodos");

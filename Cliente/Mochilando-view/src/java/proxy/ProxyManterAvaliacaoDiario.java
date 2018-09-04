@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.domain.AvaliacaoDiario;
 import model.service.interfaces.InterfaceManterAvaliacaoDiario;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
@@ -36,7 +37,7 @@ public class ProxyManterAvaliacaoDiario implements InterfaceManterAvaliacaoDiari
     }
     
     @Override
-    public Long cadastrar(AvaliacaoDiario avaliacaoDiario) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public Long cadastrar(AvaliacaoDiario avaliacaoDiario) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
          manterAvaliacaoDiario = new ArrayList();
          manterAvaliacaoDiario.add("AvaliacaoDiario");
          manterAvaliacaoDiario.add("cadastrar");
@@ -53,7 +54,7 @@ public class ProxyManterAvaliacaoDiario implements InterfaceManterAvaliacaoDiari
     }
 
     @Override
-    public boolean alterar(AvaliacaoDiario avaliacaoDiario) throws ExcecaoPersistencia, ExcecaoNegocio { 
+    public boolean alterar(AvaliacaoDiario avaliacaoDiario) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente { 
          manterAvaliacaoDiario = new ArrayList();
          manterAvaliacaoDiario.add("AvaliacaoDiario");
          manterAvaliacaoDiario.add("alterar");
@@ -70,7 +71,7 @@ public class ProxyManterAvaliacaoDiario implements InterfaceManterAvaliacaoDiari
     }
 
     @Override
-    public boolean excluir(AvaliacaoDiario avaliacaoDiario) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean excluir(AvaliacaoDiario avaliacaoDiario) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterAvaliacaoDiario = new ArrayList();
          manterAvaliacaoDiario.add("AvaliacaoDiario");
          manterAvaliacaoDiario.add("excluir");
@@ -87,7 +88,7 @@ public class ProxyManterAvaliacaoDiario implements InterfaceManterAvaliacaoDiari
     }
 
     @Override
-    public AvaliacaoDiario pesquisarPorId(Long seqAvaliacao) throws ExcecaoPersistencia {
+    public AvaliacaoDiario pesquisarPorId(Long seqAvaliacao) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterAvaliacaoDiario = new ArrayList();
          manterAvaliacaoDiario.add("AvaliacaoDiario");
          manterAvaliacaoDiario.add("pesquisarPorId");
@@ -104,7 +105,7 @@ public class ProxyManterAvaliacaoDiario implements InterfaceManterAvaliacaoDiari
     }
 
     @Override
-    public int pesquisarNumAvPositivas(Long codDiario) throws ExcecaoPersistencia {
+    public int pesquisarNumAvPositivas(Long codDiario) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
          manterAvaliacaoDiario = new ArrayList();
          manterAvaliacaoDiario.add("AvaliacaoDiario");
          manterAvaliacaoDiario.add("pesquisarNumAvPositivas");
@@ -121,7 +122,7 @@ public class ProxyManterAvaliacaoDiario implements InterfaceManterAvaliacaoDiari
     }
 
     @Override
-    public int pesquisarNumAvNegativas(Long codDiario) throws ExcecaoPersistencia {
+    public int pesquisarNumAvNegativas(Long codDiario) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterAvaliacaoDiario = new ArrayList();
          manterAvaliacaoDiario.add("AvaliacaoDiario");
          manterAvaliacaoDiario.add("pesquisarNumAvNegativas");
@@ -138,7 +139,7 @@ public class ProxyManterAvaliacaoDiario implements InterfaceManterAvaliacaoDiari
     }
 
     @Override
-    public List<AvaliacaoDiario> pesquisarPorDiario(Long codDiario) throws ExcecaoPersistencia {
+    public List<AvaliacaoDiario> pesquisarPorDiario(Long codDiario) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
          manterAvaliacaoDiario = new ArrayList();
          manterAvaliacaoDiario.add("AvaliacaoDiario");
          manterAvaliacaoDiario.add("pesquisarPorDiario");
@@ -155,7 +156,7 @@ public class ProxyManterAvaliacaoDiario implements InterfaceManterAvaliacaoDiari
     }
 
     @Override
-    public List<AvaliacaoDiario> pesquisarTodos() throws ExcecaoPersistencia {
+    public List<AvaliacaoDiario> pesquisarTodos() throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterAvaliacaoDiario = new ArrayList();
          manterAvaliacaoDiario.add("AvaliacaoDiario");
          manterAvaliacaoDiario.add("pesquisarTodos");

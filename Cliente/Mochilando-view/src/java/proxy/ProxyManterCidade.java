@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.domain.Cidade;
 import model.service.interfaces.InterfaceManterCidade;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
@@ -36,7 +37,7 @@ public class ProxyManterCidade implements InterfaceManterCidade {
     }
 
     @Override
-    public Long cadastrar(Cidade cidade) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public Long cadastrar(Cidade cidade) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
          
          manterCidade = new ArrayList();
          manterCidade.add("Cidade");
@@ -54,7 +55,7 @@ public class ProxyManterCidade implements InterfaceManterCidade {
     }
 
     @Override
-    public boolean alterar(Cidade cidade) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean alterar(Cidade cidade) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterCidade = new ArrayList();
          manterCidade.add("Cidade");
          manterCidade.add("alterar");
@@ -71,7 +72,7 @@ public class ProxyManterCidade implements InterfaceManterCidade {
     }
 
     @Override
-    public boolean excluir(Cidade cidade) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean excluir(Cidade cidade) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterCidade = new ArrayList();
          manterCidade.add("Cidade");
          manterCidade.add("excluir");
@@ -88,7 +89,7 @@ public class ProxyManterCidade implements InterfaceManterCidade {
     }
 
     @Override
-    public Cidade pesquisarPorId(Long codCidade) throws ExcecaoPersistencia {
+    public Cidade pesquisarPorId(Long codCidade) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterCidade = new ArrayList();
          manterCidade.add("Cidade");
          manterCidade.add("pesquisarPorId");
@@ -105,7 +106,7 @@ public class ProxyManterCidade implements InterfaceManterCidade {
     }
 
     @Override
-    public List<Cidade> pesquisarPorCodEstado(Long codEstado) throws ExcecaoPersistencia {
+    public List<Cidade> pesquisarPorCodEstado(Long codEstado) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
          manterCidade = new ArrayList();
          manterCidade.add("Cidade");
          manterCidade.add("pesquisarPorCodEstado");
@@ -122,7 +123,7 @@ public class ProxyManterCidade implements InterfaceManterCidade {
     }
 
     @Override
-    public List<Cidade> pesquisarTodos() throws ExcecaoPersistencia {
+    public List<Cidade> pesquisarTodos() throws ExcecaoPersistencia, ExcecaoConexaoCliente {
          manterCidade = new ArrayList();
          manterCidade.add("Cidade");
          manterCidade.add("pesquisarTodos");

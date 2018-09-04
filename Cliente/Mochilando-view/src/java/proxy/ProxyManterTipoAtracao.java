@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.domain.TipoAtracao;
 import model.service.interfaces.InterfaceManterTipoAtracao;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
@@ -38,7 +39,7 @@ public class ProxyManterTipoAtracao implements InterfaceManterTipoAtracao {
     }
     
     @Override
-    public Long cadastrar(TipoAtracao tipoAtracao) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public Long cadastrar(TipoAtracao tipoAtracao) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterTipoAtracao = new ArrayList();
         manterTipoAtracao.add("TipoAtracao");
         manterTipoAtracao.add("cadastrar");
@@ -55,7 +56,7 @@ public class ProxyManterTipoAtracao implements InterfaceManterTipoAtracao {
     }
 
     @Override
-    public boolean alterar(TipoAtracao tipoAtracao) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean alterar(TipoAtracao tipoAtracao) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterTipoAtracao = new ArrayList();
         manterTipoAtracao.add("TipoAtracao");
         manterTipoAtracao.add("alterar");
@@ -71,7 +72,7 @@ public class ProxyManterTipoAtracao implements InterfaceManterTipoAtracao {
     }
 
     @Override
-    public boolean excluir(TipoAtracao tipoAtracao) throws ExcecaoPersistencia, ExcecaoNegocio {
+    public boolean excluir(TipoAtracao tipoAtracao) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
         manterTipoAtracao = new ArrayList();
         manterTipoAtracao.add("TipoAtracao");
         manterTipoAtracao.add("excluir");
@@ -87,7 +88,7 @@ public class ProxyManterTipoAtracao implements InterfaceManterTipoAtracao {
     }
 
     @Override
-    public TipoAtracao pesquisarPorId(Long codTipoAtracao) throws ExcecaoPersistencia {
+    public TipoAtracao pesquisarPorId(Long codTipoAtracao) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterTipoAtracao = new ArrayList();
         manterTipoAtracao.add("TipoAtracao");
         manterTipoAtracao.add("pesquisarPorId");
@@ -103,7 +104,7 @@ public class ProxyManterTipoAtracao implements InterfaceManterTipoAtracao {
     }
 
     @Override
-    public TipoAtracao pesquisarPorNome(String descTipoAtracao) throws ExcecaoPersistencia {
+    public TipoAtracao pesquisarPorNome(String descTipoAtracao) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterTipoAtracao = new ArrayList();
         manterTipoAtracao.add("TipoAtracao");
         manterTipoAtracao.add("pesquisarPorNome");
@@ -119,7 +120,7 @@ public class ProxyManterTipoAtracao implements InterfaceManterTipoAtracao {
     }
 
     @Override
-    public List<TipoAtracao> pesquisarTodos() throws ExcecaoPersistencia {
+    public List<TipoAtracao> pesquisarTodos() throws ExcecaoPersistencia, ExcecaoConexaoCliente {
         manterTipoAtracao = new ArrayList();
         manterTipoAtracao.add("TipoAtracao");
         manterTipoAtracao.add("pesquisarPorNome");

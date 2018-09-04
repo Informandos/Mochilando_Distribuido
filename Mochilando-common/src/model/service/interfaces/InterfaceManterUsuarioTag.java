@@ -7,6 +7,7 @@ package model.service.interfaces;
 
 import java.util.List;
 import model.domain.UsuarioTag;
+import util.db.exception.ExcecaoConexaoCliente;
 import util.db.exception.ExcecaoNegocio;
 import util.db.exception.ExcecaoPersistencia;
 
@@ -15,11 +16,11 @@ import util.db.exception.ExcecaoPersistencia;
  * @author Juliana
  */
 public interface InterfaceManterUsuarioTag {
-    public Long cadastrar(UsuarioTag usuarioTag) throws ExcecaoPersistencia, ExcecaoNegocio;
-    public boolean alterar(UsuarioTag usuarioTag) throws ExcecaoPersistencia, ExcecaoNegocio;
-    public boolean excluir(UsuarioTag usuarioTag) throws ExcecaoPersistencia, ExcecaoNegocio;
-    public UsuarioTag pesquisarPorId(Long seqUsuarioTag) throws ExcecaoPersistencia;
-    public List<UsuarioTag> pesquisarTodos() throws ExcecaoPersistencia;
-    public List<UsuarioTag> pesquisarPorCodUsuario(Long codUsuario) throws ExcecaoPersistencia;
-    public List<UsuarioTag> pesquisarPorCodTag(Long codTag) throws ExcecaoPersistencia;
+    public Long cadastrar(UsuarioTag usuarioTag) throws ExcecaoPersistencia, ExcecaoNegocio,ExcecaoConexaoCliente;
+    public boolean alterar(UsuarioTag usuarioTag) throws ExcecaoPersistencia, ExcecaoNegocio,ExcecaoConexaoCliente;
+    public boolean excluir(UsuarioTag usuarioTag) throws ExcecaoPersistencia, ExcecaoNegocio,ExcecaoConexaoCliente;
+    public UsuarioTag pesquisarPorId(Long seqUsuarioTag) throws ExcecaoPersistencia,ExcecaoConexaoCliente;
+    public List<UsuarioTag> pesquisarTodos() throws ExcecaoPersistencia,ExcecaoConexaoCliente;
+    public List<UsuarioTag> pesquisarPorCodUsuario(Long codUsuario) throws ExcecaoPersistencia,ExcecaoConexaoCliente;
+    public List<UsuarioTag> pesquisarPorCodTag(Long codTag) throws ExcecaoPersistencia,ExcecaoConexaoCliente;
 }

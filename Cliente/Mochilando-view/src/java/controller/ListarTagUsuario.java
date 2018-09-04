@@ -6,7 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.domain.Tag;
 import model.domain.UsuarioTag;
+import model.service.implementacao.ManterUsuarioTag;
 import model.service.interfaces.InterfaceManterTag;
+import proxy.ProxyManterUsuarioTag;
 
 public class ListarTagUsuario implements Logica{
 
@@ -19,7 +21,7 @@ public class ListarTagUsuario implements Logica{
             Long codUsuario = Long.parseLong(codUsuarioStr);
             req.getSession().setAttribute("codUsuario", codUsuario);
             
-            ManterUsuarioTag manterUsuarioTag = new ManterUsuarioTag();
+            ProxyManterUsuarioTag manterUsuarioTag = new ProxyManterUsuarioTag();
             List<UsuarioTag> listaUsuarioTag =  manterUsuarioTag.pesquisarPorCodUsuario(codUsuario);
             
             List listaDescUsuarioTag = null;
