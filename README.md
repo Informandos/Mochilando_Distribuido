@@ -12,5 +12,5 @@ Desenvolvedores:
 
 Para construir esse repositório, aproveitou-se grande parte do código fonte dos repositórios Mochilando e Mochilando-core, também aplicações construídas como trabalho da disciplina citada. O grupo percebeu que seria mais efetivo em termos de avaliação a criação de um novo repositório para este novo trabalho.
 
-Na página inicial desse repositório haverá uma breve introdução a arquitetura utilizada para o funcionamento da aplicação e também alguns projetos. Há dois projetos principais: um deve ser executado ao lado do cliente e outro ao lado do servidor, embora ambos os projetos possam estar num mesmo host. Há também um projeto comum a estes dois, como forma de compartilhar recursos, sendo necessário colocar seu jar em ambos cliente e servidor.
+Na página inicial desse repositório há dois projetos principais: um deve ser executado ao lado do cliente e outro ao lado do servidor, embora ambos os projetos possam estar num mesmo host. Há também um projeto comum a estes dois, como forma de compartilhar recursos, sendo necessário colocar seu jar em ambos cliente e servidor.
 
